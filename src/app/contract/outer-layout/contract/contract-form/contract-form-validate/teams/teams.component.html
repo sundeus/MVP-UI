@@ -1,0 +1,64 @@
+<!-- <p>teams works!</p> -->
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="float-r"> <!--middle buttons div start-->
+          <button pButton type="button" label="Delete" class="ui-button-secondary bottomactionbtns"></button>
+          <button pButton type="button" label="Add Reviewer" class="ui-button-primary p-button" (click)="showModalDialog()"></button>
+          <p-dialog header="Add Reviewer" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+            <div class="p-grid">
+              <div class="p-col-7">
+                  <div class="p-grid">
+                    <div class="ui-fluid">
+                      <div class="p-field"></div>
+                      <div class="p-field">
+                          <label for="name">Name</label>
+                          <input id="name" type="text" pInputText placeholder="Add Name"> 
+                      </div>
+                      <div class="p-field">
+                          <label for="lastname1">Department</label>
+                          <input id="lastname1" type="text" pInputText placeholder="System Generated"> 
+                      </div>
+                  </div>
+                  </div>
+              </div>
+              <div class="p-col-5">
+                <div class="p-grid">
+                  <div class="ui-fluid">
+                    <!-- <div class="p-field"></div> -->
+                    <div class="p-field" style="margin-top: 6.3em;">
+                       <label for="stepno">Step No.</label>
+                      <p-inputNumber [(ngModel)]="value1" placeholder="Add Step No."></p-inputNumber>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           <p-footer>
+              <!-- <button type="button" pButton (click)="displayModal=false" label="Cancel"></button>
+              <button type="button" pButton (click)="displayModal=false" label="Save" class="ui-button-secondary"></button> -->
+              <button pButton type="button" label="Cancel" (click)="displayModal=false" class="ui-button-secondary bottomactionbtns"></button>
+              <button pButton type="button" label="Save" (click)="displayModal=false" class="ui-button-primary p-button" routerLink = ""></button>
+           </p-footer>
+          </p-dialog>
+        </div>  <!--middle buttons div end-->
+        <p-tabMenu [model]="items3"></p-tabMenu>
+        <div style="padding: 0.5em;">
+            <router-outlet></router-outlet>
+            <button pButton type="button" label="Submit" class="ui-button-primary p-button" routerLink = ""></button>
+          </div>
+        <hr class="bordermargin-lr">
+    <!--Bottom_buttons-->
+    <div class="p-grid">
+          <div class="p-col-12 p-md-8">
+             <button pButton type="button" label="Back" class="ui-button-secondary"></button>
+         </div>
+         <div class="p-col-12 p-md-4">
+             <div class="Sundeus-button-ui">
+                <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+                <button pButton type="button" label="Submit" class="ui-button-primary p-button" routerLink = ""></button>
+             </div>
+        </div>
+    </div>
+  </div>
+</div>
+

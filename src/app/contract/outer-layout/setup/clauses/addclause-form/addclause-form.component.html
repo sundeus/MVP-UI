@@ -1,0 +1,104 @@
+<!-- <p>addclause-form works!</p> -->
+    <div class="layout-main">
+        <div class="layout-content">
+           <div class="p-grid">
+               <div class="p-col-12">
+                    <!-- Top hedaer Title div_start  -->
+                   <div class="p-grid ui-fluid">
+                       <div class="p-col-12 p-md-9">
+                           <span class="title-caption">Add Clause</span>
+                       </div>
+                       <div class="p-col-12 p-md-3"></div>
+               </div>
+                  <!-- Top hedaer Title div_end -->
+            <p-card  styleClass="ui-card-shadow">
+                <div class="py-mandatoryline">
+                    <p>**All Fields are mandatory</p>
+                </div>
+               <!--1st Row-->
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-3">
+                        <label for="contracttype">Contract Type</label>
+                        <p-dropdown [options]="contracttypes" [(ngModel)]="selectedCtype1" editable="true" name="contracttype" placeholder="Select a Contract Type"></p-dropdown>
+                        <!-- <p>Selected Contract: {{selectedCtype1 || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col-3">
+                        <label for="addclause">Clause Name</label>
+                        <input id="addclause" name="addclause" type="text" pInputText placeholder="Add Clause Name"> 
+                    </div>
+                    <div class="p-field p-col-6">
+                        <label for="clauseinfo">Clause Description</label>
+                        <input id="clauseinfo" name="clauseinfo" type="text" pInputText placeholder="Add Description"> 
+                    </div>
+                    <div class="p-field p-col-3">
+                        <label for="languages">Language</label>
+                        <p-dropdown [options]="languages" [(ngModel)]="selectedLanguage1" editable="true" name="languages" placeholder="Select a Language"></p-dropdown>
+                        <!-- <p>Selected Language: {{selectedLanguage1 || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col">
+                        <label for="ticksoptions">Tick Applicable</label>
+                        <div class="p-formgroup-inline">
+                            <div class="p-field-checkbox">
+                                <p-checkbox name="option1" value="Mandatory" [(ngModel)]="options" inputId="option1"></p-checkbox>
+                                <label for="option1">Mandatory</label>
+                            </div>
+                            <div class="p-field-checkbox">
+                                <p-checkbox name="option2" value="Track" [(ngModel)]="options" inputId="option2"></p-checkbox>
+                                <label for="option2">Track</label>
+                            </div>
+                            <div class="p-field-checkbox">
+                                <p-checkbox name="option3" value="Conditional" [(ngModel)]="options" inputId="option3"></p-checkbox>
+                                <label for="option3">Conditional</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="clausetext">Clause Text</label>
+                        <textarea rows="14" cols="30" pInputTextarea placeholder="Type here..."></textarea>
+                    </div>
+                    <div class="p-field p-col-6">
+                        <label for="taggedtemplates">Tagged Templates</label>
+                        <!--Table of tagged templates-->
+                        <p-table [columns]="cols" [value]="taggedtemplates" [scrollable]="true" scrollHeight="200px">
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <!-- <th *ngFor="let col of columns">
+                                        {{col.header}}
+                                    </th> -->
+                                    <th style="width: 10%;">Sr #</th>
+                                    <th>Subject</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                <tr>
+                                    <!-- <td *ngFor="let col of columns">
+                                        {{rowData[col.field]}}
+                                    </td> -->
+                                    <td style="width: 10%;">{{rowData['Sr #']}}</td>
+                                    <td> {{rowData['Subject']}}</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>   <!--Table of tagged templates_end-->                   
+                    </div>
+                 </div>
+                   <!--1st Row end-->
+               <hr class="bordermargin-lr">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-6 p-lg-3"></div>
+                    <div class="p-col-12 p-md-6 p-lg-3"></div>
+                    <div class="p-col-12 p-md-6 p-lg-3"></div>
+                    <div class="p-col-12 p-md-6 p-lg-3">
+                          <div class="Sundeus-button-ui">
+                            <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+                            <button pButton type="button" label="Save" class="ui-button-primary p-button"></button>
+                        </div>
+                    </div>
+                </div>
+                <!--2nd Row end-->
+               </p-card>
+              </div>
+           </div>       <!--top grid end-->
+           
+        </div>       <!--layout-content end-->
+       </div>       <!--layout-main end-->
+    

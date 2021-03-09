@@ -1,0 +1,136 @@
+<!-- <p>obligations works!</p> -->
+<div class="ui-fluid p-formgrid p-grid">
+    <div class="p-field p-col">
+        <label for="entitlement"><span class="colorred">*</span>Entitlement Type</label>
+        <p-dropdown [options]="entitlements" [(ngModel)]="selectedEntitle1" name="entitlement" placeholder="Select a Entitlement Type"></p-dropdown>
+        <!-- <p>Selected Entitle: {{selectedEntitle1 || 'none'}}</p>    -->
+     </div>
+    <div class="p-field p-col">
+        <label for="timeline"><span class="colorred">*</span>Time Lines</label>
+        <p-dropdown [options]="timelines" [(ngModel)]="selectedTime1" placeholder="Select time Line"></p-dropdown>
+        <!-- <p>Selected Time: {{selectedTime1 || 'none'}}</p>     -->
+    </div>
+    <div class="p-field p-col">
+        <label for="frequency"><span class="colorred">*</span>Frequency</label>
+        <p-dropdown [options]="frequencys" [(ngModel)]="selectedFreq1" name="frequency" placeholder="Select Frequency"></p-dropdown>
+         <!-- <p>Selected Freq1: {{selectedFreq1 || 'none'}}</p> -->
+    </div>
+    <div class="p-field p-col">
+        <label for="validfrom"><span class="colorred">*</span>Valid From</label>
+        <p-calendar [(ngModel)]="datefrom" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"  dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="datefrom" styleClass="bgcoloricon"></p-calendar>
+    </div>
+    <div class="p-field p-col">
+        <label for="validto"><span class="colorred">*</span>Valid To</label>
+        <p-calendar [(ngModel)]="dateto" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"  dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="dateto" styleClass="bgcoloricon"></p-calendar>
+    </div>
+</div>
+<!-- <div class="p-grid"> -->
+      <div class="ui-fluid p-formgrid p-grid">
+        <div class="p-field p-col-3">
+           <label for="entitledescript">Entitlement Description</label>
+           <input id="entitledescript" name="description" type="text" pInputText placeholder="Add Entitlement Description"> 
+        </div>
+        <div class="p-field p-col-3">
+            <label for="email"><span class="colorred">*</span>Responsible Preson Email</label>
+            <input id="email" name="emails" type="text" pInputText placeholder="Add Email Deatils"> 
+        </div>
+       <div class="p-field p-col-3">
+            <label for="approvalreq"><span class="colorred">*</span>Approval Required</label>
+            <p-dropdown [options]="approvals" [(ngModel)]="selectedApproval1" name="approval" placeholder="Select"></p-dropdown>
+            <!-- <p>Selected Approval: {{selectedApproval1 || 'none'}}</p> -->      
+        </div>
+        <div class="p-field p-col-2">
+            <label for="notice"><span class="colorred">*</span>Reminder Notice</label>
+            <p-dropdown [options]="notices" [(ngModel)]="selectedNotice1" name="notice" placeholder="Select"></p-dropdown>
+            <!-- <p>Selected Notice: {{selectedNotice1 || 'none'}}</p> -->        
+         </div>
+       <div class="p-field p-col-1">
+            <button pButton type="button" label="Add" class="ui-button-primary" style="margin-top: 22px;" routerLink = "#"></button>
+        </div>
+     </div>
+<!-- </div> -->
+<!-- <div class="whitebackground-ht1"> -->
+<p-table [columns]="cols" [value]="customtabledata" (sortFunction)="customSort($event)" [customSort]="true" [resizableColumns]="true" [scrollable]="true" scrollHeight="180px">
+     <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+          <col *ngFor="let col of columns" [style.width]="col.width">
+       </colgroup>
+     </ng-template>
+    <ng-template pTemplate="header" let-columns>
+    <tr>
+         <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+             <p-sortIcon [field]="col.field"></p-sortIcon>
+         </th> -->
+         <th [pSortableColumn]="columns[0].field" pResizableColumn>
+             {{columns[0].header}}
+            <p-sortIcon [field]="columns[0].field"></p-sortIcon>
+        </th>
+        <th [pSortableColumn]="columns[1].field" pResizableColumn>
+          {{columns[1].header}}
+          <p-sortIcon [field]="columns[1].field"></p-sortIcon>
+    </th>
+    <th [pSortableColumn]="columns[2].field" pResizableColumn>
+        {{columns[2].header}}
+       <p-sortIcon [field]="columns[2].field"></p-sortIcon>
+    </th>
+    <th [pSortableColumn]="columns[3].field" pResizableColumn>
+       {{columns[3].header}}
+       <p-sortIcon [field]="columns[3].field"></p-sortIcon>
+     </th>
+     <th [pSortableColumn]="columns[4].field" pResizableColumn>
+        {{columns[4].header}}
+        <p-sortIcon [field]="columns[4].field"></p-sortIcon>
+      </th>
+      <th [pSortableColumn]="columns[5].field" pResizableColumn>
+        {{columns[5].header}}
+        <p-sortIcon [field]="columns[5].field"></p-sortIcon>
+      </th>
+      <th [pSortableColumn]="columns[6].field" pResizableColumn>
+        {{columns[6].header}}
+        <p-sortIcon [field]="columns[6].field"></p-sortIcon>
+      </th>
+      <th [pSortableColumn]="columns[7].field" pResizableColumn>
+        {{columns[7].header}}
+        <p-sortIcon [field]="columns[7].field"></p-sortIcon>
+      </th>
+     <th pResizableColumn>
+          {{columns[8].header}}
+     </th>
+</tr>
+</ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+     <tr>
+       <!-- <td *ngFor="let col of columns">
+             {{rowData[col.field]}}
+       </td> -->
+     <td>{{rowData['Entitlement Type']}}</td>
+     <td>{{rowData['Frequency']}}</td>
+     <td>{{rowData['Valid From']}}</td>
+     <td>{{rowData['Valid To']}}</td>
+     <td>{{rowData['Email']}}</td>
+     <td>{{rowData['Approval']}}</td>
+     <td>{{rowData['Reminder']}}</td>
+     <td>{{rowData['Status']}}</td>
+     <td class="listactionicon">
+          <!-- <img src="dist/SundeusCLMImg/List Page icons/Editlatest.svg"  alt="" style="padding-right: 10px;"> -->
+          <img src="dist/SundeusCLMImg/List Page icons/Viewlatest.svg" alt="" style="padding-right: 10px;">
+          <img src="dist/SundeusCLMImg/List Page icons/Deletelatest.svg" alt="">
+   </td>
+ </tr>
+</ng-template>
+</p-table>
+<!-- </div> -->
+<hr class="bordermargin-lr">
+<!--Bottom_buttons-->
+<div class="p-grid">
+      <div class="p-col-12 p-md-8">
+         <button pButton type="button" label="Back" class="ui-button-secondary"></button>
+     </div>
+     <div class="p-col-12 p-md-4">
+         <div class="Sundeus-button-ui">
+            <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+            <button pButton type="button" label="Submit" class="ui-button-primary p-button" routerLink = "/app/contract/form/step3"></button>
+         </div>
+    </div>
+</div>

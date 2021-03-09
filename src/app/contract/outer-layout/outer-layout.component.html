@@ -1,0 +1,19 @@
+<p-menubar [model]="items" styleClass="Sundeusmenuright">
+    <div>
+    <button pButton type="button" (click)="visibleSidebar1 = true" icon="pi pi-bars" styleClass="Sundeusmenuright"></button>
+    <span class="Sundeusheaderlogo1"></span>
+       <!-- <input type="text" pInputText placeholder="Search">
+        <button pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button> -->
+    </div>
+</p-menubar>
+<p-sidebar [(visible)]="visibleSidebar1" styleClass="sidebarsize" [baseZIndex]="10000">
+   <p-tieredMenu [model]="sundeussidemenu" styleClass="Sundeussideborder"></p-tieredMenu>
+</p-sidebar>
+<!-- <app-dashboard></app-dashboard> -->
+<p-scrollPanel [style]="{width: '100%', height: '10%'}">
+   <router-outlet></router-outlet>
+</p-scrollPanel>
+
+<footer class="footer"> 
+    <div class="textalignment"> Terms of use &copy; 2012-2020 Sundeus Technology. All rights reserved</div>
+</footer>

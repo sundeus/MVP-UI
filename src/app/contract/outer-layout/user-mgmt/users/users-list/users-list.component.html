@@ -1,0 +1,100 @@
+<div class="layout-main">
+    <div class="layout-content">
+       <div class="p-grid">
+           <div class="p-col-12">
+                <!-- Top hedaer Title and Serch placeholder div_start  -->
+               <div class="p-grid ui-fluid">
+                   <div class="p-col-12 p-md-9">
+                       <span class="title-caption">User Management</span>
+                   </div>
+                   <div class="p-col-12 p-md-3">
+                       <div class="ui-inputgroup">
+                           <input type="text" pInputText placeholder="Search by">   
+                           <button pButton type="button" icon="pi pi-search" class="ui-button-warn Sundeus-golbal-serch"></button>      
+                       </div>
+                   </div>
+           </div>
+              <!-- Top hedaer Title and Serch placeholder div_end -->
+               <p-card  styleClass="ui-card-shadow">
+                   <div class="p-grid">
+                      <div class="p-col-8"></div>
+                       <div class="p-col-4">
+                           <button pButton type="button" label="Add User" class="ui-button-primary Sundeus-button-ui" routerLink = "/app/usermgmt/users/form"></button>
+                       </div>
+                   </div>
+                   <!--PrimeNg Sort&page Table-->
+            <div class="p-grid">
+               <div class="p-col-12">
+               <p-table [columns]="cols" [value]="customtabledata" (sortFunction)="customSort($event)" [customSort]="true" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true"
+               currentPageReportTemplate="Showing {first} to {last} of {totalRecords} records" [resizableColumns]="true">
+             <ng-template pTemplate="colgroup" let-columns>
+                <colgroup>
+                    <col *ngFor="let col of columns" [style.width]="col.width">
+                </colgroup>
+              </ng-template>
+                  <ng-template pTemplate="header" let-columns>
+                  <tr>
+                       <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                           <p-sortIcon [field]="col.field"></p-sortIcon>
+                       </th> -->
+                       <th class="w-coltable" [pSortableColumn]="columns[0].field" pResizableColumn>
+                           {{columns[0].header}}
+                          <p-sortIcon [field]="columns[0].field"></p-sortIcon>
+                      </th>
+                      <th [pSortableColumn]="columns[1].field" pResizableColumn>
+                       {{columns[1].header}}
+                      <p-sortIcon [field]="columns[1].field"></p-sortIcon>
+                  </th>
+                    <th [pSortableColumn]="columns[2].field" pResizableColumn>
+                         {{columns[2].header}}
+                        <p-sortIcon [field]="columns[2].field"></p-sortIcon>
+                    </th>
+                        <th [pSortableColumn]="columns[3].field" pResizableColumn>
+                               {{columns[3].header}}
+                           <p-sortIcon [field]="columns[3].field"></p-sortIcon>
+                     </th>
+                       <th [pSortableColumn]="columns[4].field" pResizableColumn>
+                          {{columns[4].header}}
+                        <p-sortIcon [field]="columns[4].field"></p-sortIcon>
+                        </th>
+                  <th [pSortableColumn]="columns[5].field" pResizableColumn>
+                         {{columns[5].header}}
+                        <p-sortIcon [field]="columns[5].field"></p-sortIcon>
+               </th>
+               <th pResizableColumn>
+                        {{columns[6].header}}
+             </th>
+        </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-rowData let-columns="columns">
+                   <tr>
+                     <!-- <td *ngFor="let col of columns">
+                           {{rowData[col.field]}}
+                     </td> -->
+                   <td><ins><a href="#">{{rowData['User Name']}}</a></ins></td>
+                   <td>{{rowData['Department']}}</td>
+                   <td>{{rowData['Role']}}</td>
+                   <td>{{rowData['Email']}}</td>
+                   <td>{{rowData['Created On']}}</td>
+                   <td>
+                       <p-toggleButton [(ngModel)]="rowData['checked']" onLabel="Active" offLabel="Inactive" [style]="{'width':'75px','border-radius':'25px'}" styleClass="togglebutton">{{rowData['Status']}}</p-toggleButton>
+                   </td>
+                <td class="listactionicon">
+                        <img src="dist/SundeusCLMImg/List Page icons/Editlatest.svg" alt="" style="padding-right: 10px;">
+                        <img src="dist/SundeusCLMImg/List Page icons/Viewlatest.svg" alt="" style="padding-right: 10px;">
+                        <img src="dist/SundeusCLMImg/List Page icons/Deletelatest.svg" alt="">
+                 </td>
+               </tr>
+                </ng-template>
+           </p-table>
+       </div>
+    </div>
+                   
+   </p-card>
+          </div>
+       </div>       <!--top_grid end-->
+       
+    </div>       <!--layout-content end-->
+   </div>       <!--layout-main end-->
+   

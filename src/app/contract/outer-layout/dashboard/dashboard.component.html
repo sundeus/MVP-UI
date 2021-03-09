@@ -1,0 +1,169 @@
+<div class="layout-main">
+<div class="layout-content">
+<div class="p-grid layout-dashboard">
+    <div class="p-col-12 p-xl-3 p-md-6">
+        <p-card [style]="{height: '84px'}">
+           <div class="p-grid overview-box">
+                <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/intiatedkpi.svg"></div>
+                <div class="p-col-6 p-col-align-center overview-box-text">
+                    <span class="title-captionkpi">Initiated</span>
+                    <!-- <h3>Initiated</h3> -->
+                </div>
+                <div class="p-col-3 p-col-align-center overview-box-status">60</div>
+            </div>
+        </p-card>
+    </div>
+    <div class="p-col-12 p-xl-3 p-md-6">
+        <p-card [style]="{height: '84px'}">
+            <div class="p-grid overview-box">
+                 <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/PendingSignature.svg"></div>
+                 <div class="p-col-6 p-col-align-center overview-box-text">
+                     <!-- <h3>Pending Signature</h3> -->
+                     <span class="title-captionkpi">Pending Signature</span>
+                 </div>
+                 <div class="p-col-3 p-col-align-center overview-box-status2">4</div>
+             </div>
+         </p-card>
+    </div>
+    <div class="p-col-12 p-xl-3 p-md-6">
+        <p-card [style]="{height: '84px'}">
+            <div class="p-grid overview-box">
+                 <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/PendingApproval.svg"></div>
+                 <div class="p-col-6 p-col-align-center overview-box-text">
+                    <span class="title-captionkpi">Pending Approval</span>
+                </div>
+                 <div class="p-col-3 p-col-align-center overview-box-status3">14</div>
+             </div>
+         </p-card>
+    </div>
+    <div class="p-col-12 p-xl-3 p-md-6">
+        <p-card [style]="{height: '84px'}">
+            <div class="p-grid overview-box">
+                 <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/expiring.svg"></div>
+                 <div class="p-col-6 p-col-align-center overview-box-text">
+                     <span class="title-captionkpi">Expiring</span>
+                 </div>
+                 <div class="p-col-3 p-col-align-center overview-box-status4">22</div>
+             </div>
+         </p-card>
+    </div>
+    <!--2nd row content start table/graph-->
+<div class="p-col-12 p-lg-6">
+<div class="p-grid p-dir-col p-nogutter">
+    <div class="p-col-12">
+        <div class="card myTasktable">
+            <div class="p-grid border-btm">
+                <div class="p-col-6 p-md-8">
+                    <span class="title-caption">My Task</span>
+                </div>
+                <div class="p-col-6 p-md-4">
+                    <span class="customicon"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                    <span class="customicon pr-doticon"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
+                </div>
+            </div>
+         <!-- <div class="border-line"></div> -->
+            <!-- primng table -->
+            <p-table [columns]="scrollableCols" [value]="contracttask" styleClass="ui-table-mytask" [scrollable]="true" scrollHeight="300px">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <!-- <th *ngFor="let col of columns">
+                            {{col.header}}
+                        </th> -->
+                        <th class="w-tableheader">Subject</th>
+                        <th>Action</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <!-- <td *ngFor="let col of columns">
+                            <span *ngIf = "col.field!='image'">
+                                {{rowData[col.field]}}
+                          </span>
+                             <img *ngIf = "col.field=='image'" [src]="rowData['image']" alt="">
+                        </td> -->
+                        <td class="w-tableheader">
+                            Approval request assigned for <a href="">{{rowData['Subject']}}</a>
+                        </td>
+                         <td>
+                           <img src="dist/SundeusCLMImg/List Page icons/Viewlatest.svg" style="height: 20px; vertical-align: middle;" alt="">
+                        </td>
+                    </tr>
+                </ng-template>      
+            </p-table>
+            <!--end of dynamic table-->
+        </div>
+    </div>
+</div>
+</div>
+<div class="p-col-12 p-lg-6">
+    <div class="p-grid p-dir-col p-nogutter">
+        <div class="p-col-12">
+            <div class="card">
+                <div class="p-grid">
+                    <div class="p-col-6 p-md-8">
+                        <span class="title-caption">Active Contracts by Type</span>
+                        <!-- <h3>Active Contracts by Type</h3> -->
+                    </div>
+                    <div class="p-col-6 p-md-4">
+                        <span class=" customicon"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                        <span class="customicon pr-doticon"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+                <!-- Bar Chart COl start -->
+                <p-chart type="bar" [data]="data" [options]="options" id="mybarchart"></p-chart>
+                <!--Bar Char Col end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--3rd row content start doughnutchart-graph/ Pie-graph etc-->
+<div class="p-col-12 p-lg-4 p-md-6">
+    <div class="card">
+        <div class="p-grid p-nogutter">
+          <div class="p-col-6 title">
+            <!-- <h3>Contract Per Status</h3> -->
+            <span class="title-caption">Contract Per Status</span>
+          </div>
+          <div class="p-col-6">
+            <span class="customicon"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <!-- doughnutchart-graph 1 -->
+        <p-chart type="doughnut" [data]="data1"></p-chart>
+    </div>
+</div>
+<div class="p-col-12 p-lg-4 p-md-6">
+    <div class="card">
+        <div class="p-grid p-nogutter">
+          <div class="p-col-6 title">
+            <!-- <h3>Contract Per Category</h3> -->
+            <span class="title-caption">Contract Per Category</span>
+          </div>
+          <div class="p-col-6">
+            <span class="customicon"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <!-- pie_chart-graph 2 -->
+        <p-chart type="pie" [data]="data2"></p-chart>
+    </div>
+</div>
+<div class="p-col-12 p-lg-4 p-md-6">
+    <div class="card">
+        <div class="p-grid p-nogutter">
+          <div class="p-col-6 title">
+            <!-- <h3>Contract Per Organisation Unit</h3> -->
+            <span class="title-caption">Contract Per Organisation Unit</span>
+          </div>
+          <div class="p-col-6">
+            <span class="customicon"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <!-- doughnutchart-graph 3 -->
+        <p-chart type="doughnut" [data]="data3"></p-chart>
+ </div>
+</div>
+<!--3rd row content Enddd doughnutchart-graph-->
+</div>       <!--layout-dashboard end-->
+
+</div>       <!--layout-content end-->
+</div>       <!--layout-main end-->

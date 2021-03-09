@@ -1,0 +1,53 @@
+<!-- <p>login works!</p> -->
+<!-- <div class=""> -->
+<div class="p-grid bkground-image">
+    <div class="p-col-4">
+       <img src="./../../../dist/SundeusCLMImg/Sundeus_logo/Sundeuslogo.svg" alt="">
+    </div>
+    <div class="p-col-3"></div>
+    <div class="p-col-5 loginbox">
+        <div class="CLM-title">
+            <span class="title1">Welcome!</span>
+            <p class="subtitle">Contract Management by Sundeus Technology</p>
+        <!-- </div> -->
+        <p-card subheader="" [style]="{width: '360px'}" styleClass="ui-card-shadow cardpos">
+            <p-header>
+                <div class="Cardheader spacingbottom-1">LOGIN</div>
+            </p-header>
+            <form [formGroup]="formdata"> 
+            <div class="p-grid">
+              <div class="p-col-12">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+                    <input type="text" class="form-control" name="username" pInputText placeholder="Username" formControlName="username" required class="w-19">
+                </div>
+              </div>
+              <div class="p-col-12">
+                <div class="ui-inputgroup">
+                   <span class="ui-inputgroup-addon"><i class="pi pi-lock" style="line-height: 1.25;"></i></span>
+                   <input type="password" class="form-control" name="password" formControlName="password" pPassword placeholder="Password" required class="w-19" />
+                </div>
+              </div>
+              <div class="p-col-12">
+                  <p-checkbox [(ngModel)]="checked" binary="true" value="Remember me" label="Remember me"></p-checkbox>
+                  <a href="" class="stretched-link float-r" (click)="showModalDialog()"><ins>Forgot Password?</ins></a>
+              </div>
+            </div>
+            <p-footer>
+                <button pButton type="button" label="SIGN IN" class="ui-button-secondary w-20 spacingbottom-1"></button>
+            </p-footer>
+        </p-card>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<!--Forgot password Dialog_Modal-->
+<p-dialog header="Godfather I" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p>Enter your email address and we'll send you a link to reset your password.</p>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="displayModal=false" label="Yes"></button>
+            <button type="button" pButton icon="pi pi-times" (click)="displayModal=false" label="No" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>
+</form>

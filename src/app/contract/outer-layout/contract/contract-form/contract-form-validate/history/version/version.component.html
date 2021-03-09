@@ -1,0 +1,37 @@
+<!-- <p>version works!</p> -->
+<p-table [columns]="cols" [value]="customtabledata" (sortFunction)="customSort($event)" [customSort]="true" [resizableColumns]="true" [scrollable]="true" scrollHeight="270px">
+    <ng-template pTemplate="colgroup" let-columns>
+       <colgroup>
+         <col *ngFor="let col of columns" [style.width]="col.width">
+      </colgroup>
+    </ng-template>
+   <ng-template pTemplate="header" let-columns>
+   <tr>
+        <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+             {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+        </th> -->
+        <th [pSortableColumn]="columns[0].field" pResizableColumn>
+            {{columns[0].header}}
+           <p-sortIcon [field]="columns[0].field"></p-sortIcon>
+       </th>
+       <th [pSortableColumn]="columns[1].field" pResizableColumn>
+         {{columns[1].header}}
+         <p-sortIcon [field]="columns[1].field"></p-sortIcon>
+       </th>
+       <th pResizableColumn>
+         {{columns[2].header}}
+       </th>
+    </tr>
+</ng-template>
+   <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <!-- <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+      </td> -->
+    <td>{{rowData['Version']}}</td>
+    <td>{{rowData['Created/Updated By']}}</td>
+    <td>{{rowData['Created/Updated On']}}</td>
+    </tr>
+</ng-template>
+</p-table>

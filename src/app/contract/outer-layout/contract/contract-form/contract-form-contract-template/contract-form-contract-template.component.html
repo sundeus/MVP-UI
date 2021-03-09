@@ -1,0 +1,63 @@
+<!-- <p>contract-form-contract-template works!</p> -->
+<div class="p-grid">
+  <div class="p-col-12">
+    <div class="whitebackground-ht2">
+ <!--Table_1 start-->
+ <p-table [columns]="cols" [value]="customtabledata" [scrollable]="true" scrollHeight="200px" (sortFunction)="customSort($event)" [customSort]="true" [paginator]="false" [rows]="10" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true"
+ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} records" [resizableColumns]="true" styleClass="ui-table-paddtop">
+    <ng-template pTemplate="header" let-columns>
+    <tr>
+         <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+             <p-sortIcon [field]="col.field"></p-sortIcon>
+         </th> -->
+         <th [pSortableColumn]="columns[0].field" style="width: 40%;">
+             {{columns[0].header}}
+            <p-sortIcon [field]="columns[0].field"></p-sortIcon>
+        </th>
+        <th [pSortableColumn]="columns[1].field">
+         {{columns[1].header}}
+        <p-sortIcon [field]="columns[1].field"></p-sortIcon>
+    </th>
+      <th [pSortableColumn]="columns[2].field" style="width: 30%;">
+           {{columns[2].header}}
+          <p-sortIcon [field]="columns[2].field"></p-sortIcon>
+      </th>
+    <th>
+          {{columns[3].header}}
+     </th>
+  </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+     <tr>
+       <!-- <td *ngFor="let col of columns">
+             {{rowData[col.field]}}
+       </td> -->
+     <td style="width: 40%;">
+        <p-radioButton name="group1" value="Option 1" label="Option 1" [(ngModel)]="val1" inputId="opt1"></p-radioButton>
+        {{rowData['Template Name']}}
+    </td>
+     <td>{{rowData['Version']}}</td>
+     <td style="width: 30%;">{{rowData['Description']}}</td>
+   <td class="listactionicon"> 
+          <img src="dist/SundeusCLMImg/List Page icons/downloadicon.svg" alt="" style="padding-right: 10px;">
+          <img src="dist/SundeusCLMImg/List Page icons/Deletelatest.svg" alt="">
+   </td>
+ </tr>
+  </ng-template>
+</p-table>   <!--table_1 end -->
+</div>
+<hr class="bordermargin-lr">
+<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+          <div class="Sundeus-button-ui">
+            <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+            <button pButton type="button" label="Continue" class="ui-button-primary p-button" routerLink = "/app/contract/form/step4"></button>
+        </div>
+    </div>
+</div>
+</div>
+</div>  <!--end of grid-->

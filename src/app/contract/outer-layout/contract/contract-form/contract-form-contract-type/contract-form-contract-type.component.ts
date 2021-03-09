@@ -1,0 +1,37 @@
+import { Component, OnInit } from '@angular/core';
+import {SelectItem} from 'primeng/api';
+
+
+@Component({
+  selector: 'app-contract-form-contract-type',
+  templateUrl: './contract-form-contract-type.component.html',
+  styleUrls: ['./contract-form-contract-type.component.css']
+})
+export class ContractFormContractTypeComponent implements OnInit {
+  contracttypes: SelectItem[];    //dropdown1
+  selectedCtype1: string;
+  transactiontypes: SelectItem[];    //dropdown2
+  selectedTransaction1: string;
+  checked2: boolean = true;
+
+  constructor() {
+    this.contracttypes = [
+      {label: 'NDA', value: 'NDA'},
+      {label: 'MSA', value: 'MSA'},
+      {label: 'Offer Letter', value: 'Offer Letter'},
+      {label: 'LA', value: 'LA'}
+  ];   //dropdown1_ContractType_end
+  this.transactiontypes = [
+    {label: 'Own', value: 'Own'},
+    {label: 'Third Party', value: 'Third Party'},
+    {label: 'Legacy', value: 'Legacy'}
+];   //dropdown2_transactiontypes_end
+
+   }  //end of construcor() method
+
+  ngOnInit(): void {
+  }  //end of  ngOnInit()_void method
+
+}  //end of export class 
+
+ 

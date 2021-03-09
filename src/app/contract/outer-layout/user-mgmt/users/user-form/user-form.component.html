@@ -1,0 +1,150 @@
+<!-- <p>user-form works!</p> -->
+<!-- <p>organisation-details works!</p> -->
+<div class="layout-main">
+    <div class="layout-content">
+       <div class="p-grid">
+           <div class="p-col-12">
+                <!-- Top hedaer Title div_start  -->
+               <div class="p-grid ui-fluid">
+                   <div class="p-col-12 p-md-9">
+                       <span class="title-caption">Add User</span>
+                   </div>
+                   <div class="p-col-12 p-md-3"></div>
+           </div>
+              <!-- Top hedaer Title div_end -->
+        <p-card  styleClass="ui-card-shadow">
+            <div class="p-grid p-nogutter pt-innerpart">
+                <div class="p-col-6">
+                    <div class="py-mandatoryline">
+                        <p>**Fields marked with <span class="colorred">*</span> are mandatory</p>
+                    </div>                
+                </div>
+                <div class="p-col-6">
+                  <span class="customicon"><i class="fa fa-expand" aria-hidden="true" style="padding-right: 5px; transform: rotate(136deg);"></i>Expand All</span>
+                </div>
+            </div>    <!--Mandatory Line section end-->
+         <!--1st Row-->
+           <p-scrollPanel [style]="{width: '100%', height: '490px'}">
+            <p-accordion>
+                <p-accordionTab header="Basic Information" [selected]="true">
+                    <div class="p-grid">
+                        <div class="p-col-9">
+                            <div class="ui-fluid p-formgrid p-grid">
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="tid">Tenant ID</label>
+                                    <input id="tid" name="tenantid" type="text" pInputText placeholder="System Generated"> 
+                                </div>
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="status">Status</label>
+                                    <input id="status" name="status" type="text" pInputText placeholder="System Generated"> 
+                                </div>
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="eid">Employee ID</label>
+                                    <input id="eid" name="eid" type="text" pInputText placeholder="Enter Employee Id"> 
+                                </div>
+                            </div>
+                            <div class="ui-fluid p-formgrid p-grid">
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="fname"><span class="colorred">*</span>First Name</label>
+                                    <input id="fname" name="fname" type="text" pInputText placeholder="Add First Name"> 
+                                </div>
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="mname">Middle Name</label>
+                                    <input id="mname" name="mname" type="text" pInputText placeholder="Add Middle Name"> 
+                                </div>
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="lname"><span class="colorred">*</span>Last Name</label>
+                                    <input id="lname" name="lname" type="text" pInputText placeholder="Add Last Name"> 
+                                </div>
+                            </div>
+                            <div class="ui-fluid p-formgrid p-grid">
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="cno"><span class="colorred">*</span>Contact Number</label>
+                                    <p-inputMask mask="(999) 999-9999" [(ngModel)]="value1" placeholder="(999) 999-9999"></p-inputMask>                                
+                                </div>
+                                <div class="p-field p-col-12 p-md-8">
+                                    <label for="fileupload">Profile Picture</label>
+                                    <input id="fileupload" name="fileupload" type="text" pInputText placeholder="Browse..."> 
+                                </div>
+                            </div>
+                            <div class="ui-fluid p-formgrid p-grid">
+                                <div class="p-field p-col-12 p-md-8">
+                                    <label for="address"><span class="colorred">*</span>Address</label>
+                                    <textarea id="address" name="address" type="text" rows="1" pInputTextarea placeholder="Add Address"></textarea>
+                                </div>
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="country"><span class="colorred">*</span>Country</label>
+                                    <p-dropdown inputId="country" name="countries" [options]="countries" [(ngModel)]="selectedCountry" placeholder="Select Country" optionLabel="name"></p-dropdown>
+                                </div>
+                            </div>
+                            <div class="ui-fluid p-formgrid p-grid">
+                                <div class="p-field p-col-12 p-md-8">
+                                    <label for="eaddress"><span class="colorred">*</span>Email Address (This will be your UserId)</label>
+                                    <input id="eaddress" name="eaddress" type="text" pInputText placeholder="Enter Email Address"> 
+                                </div>
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="pwd"><span class="colorred">*</span>Password</label>
+                                    <input pPassword type="password" pPassword [(ngModel)]="property"  pInputText placeholder="Enter Password" />                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-3">
+                            4
+                        </div>
+                    </div>
+                </p-accordionTab>   <!--p-accordionTab_1 end-->
+                <p-accordionTab header="Organisation Details">
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12 p-md-4">
+                            <label for="designation"><span class="colorred">*</span>Designation</label>
+                            <input id="designation" name="designation" type="text" pInputText placeholder="Add Designation"> 
+                        </div>
+                        <div class="p-field p-col-12 p-md-4">
+                            <label for="Olevel"><span class="colorred">*</span>Organisation Level</label>
+                            <input id="Olevel" name="Olevel" type="text" pInputText placeholder="Add Organisation Level"> 
+                        </div>
+                        <div class="p-field p-col-12 p-md-4">
+                            <label for="dept">Department</label>
+                            <input id="dept" name="dept" type="text" pInputText placeholder="Add Department"> 
+                        </div>
+                    </div>
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12 p-md-4">
+                            <label for="date"><span class="colorred">*</span>Date Of Joining</label>
+                            <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="date" styleClass="bgcoloricon"></p-calendar>
+                        </div>
+                        <div class="p-field p-col-12 p-md-4">
+                            <label for="repomanager">Reporting Manager</label>
+                            <p-dropdown [options]="repomanager"  [(ngModel)]="selectedManager" name="repomanager" placeholder="Select Reporting Manager"></p-dropdown>
+                            <!-- <p>Selected Manager: {{selectedManager || 'none'}}</p> -->
+                        </div>
+                        <div class="p-field p-col-12 p-md-4">
+                            <label for="role"><span class="colorred">*</span>Assign Role</label>
+                            <p-dropdown [options]="role"  [(ngModel)]="selectedRole" name="role" placeholder="Select Role"></p-dropdown>
+                            <!-- <p>Selected Role: {{selectedRole || 'none'}}</p> -->
+                        </div>
+                    </div>
+                 </p-accordionTab>   <!--p-accordionTab_2 end-->
+            </p-accordion> <!--Accordian End here-->
+            </p-scrollPanel>
+               <!--1st Row end-->
+           <hr class="bordermargin-lr">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3">
+                      <div class="Sundeus-button-ui">
+                        <button pButton type="button" label="Cancel" class="ui-button-secondary"></button>
+                        <button pButton type="button" label="Save & Activate" class="ui-button-primary p-button bottomactionbtns" routerLink = ""></button>
+                        <button pButton type="button" label="Save" class="ui-button-primary p-button"></button>
+                    </div>
+                </div>
+            </div>
+            <!--2nd Row end-->
+           </p-card>
+          </div>
+       </div>       <!--top grid end-->
+       
+    </div>       <!--layout-content end-->
+   </div>       <!--layout-main end-->

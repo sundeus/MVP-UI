@@ -1,0 +1,173 @@
+<div class="p-grid">
+   <div class="p-col-12">
+          <!--Mandatory Line section start-->
+    <div class="p-grid p-nogutter pt-innerpart">
+    <div class="p-col-6">
+        <div class="py-mandatoryline">
+            <p>**Fields marked with <span class="colorred">*</span> are mandatory</p>
+        </div>                
+    </div>
+    <div class="p-col-6">
+      <span class="customicon"><i class="fa fa-expand" aria-hidden="true" style="padding-right: 5px; transform: rotate(136deg);"></i>Expand All</span>
+    </div>
+  </div>    <!--Mandatory Line section end-->
+<p-scrollPanel [style]="{width: '100%', height: '380px'}">
+<p-accordion>
+    <p-accordionTab header="Basic Information" [selected]="true">
+        <div class="ui-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-3">
+                <label for="Contractname"><span class="colorred">*</span>Contract Name</label>
+                <input id="Contractname" name="cname" type="text" pInputText placeholder="Add Contract Name"> 
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="ename"><span class="colorred">*</span>Employee Name</label>
+                <input id="ename" name="ename" type="text" pInputText placeholder="Add Employee Name"> 
+            </div>
+            <div class="p-field p-col-12 p-md-6"></div>
+            <div class="p-field p-col-12 p-md-6">
+                <label for="address">Employee Address</label>
+                <input id="address" name="eaddress" type="text" pInputText placeholder="Add Employee Address"> 
+            </div>
+           
+        </div>    
+    </p-accordionTab>   <!--p-accordionTab_1 end-->
+    <p-accordionTab header="Offer Details">
+        <div class="ui-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-1">
+                <label for="offertype"><span class="colorred">*</span>Offer Type</label>
+                <!-- <div class=" p-field p-col-12"> -->
+                <p-toggleButton [(ngModel)]="checked2" onLabel="Contract" offLabel="Permanent" [style]="{'width':'80px','padding':'4px 0px','border-radius':'25px'}" styleClass="togglebutton"></p-toggleButton>                    
+            <!-- </div> -->
+            </div>
+            <div class="p-field p-col-12 p-md-11"></div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="desgnation"><span class="colorred">*</span>Designation</label>
+                <input id="desgnation" name="desgnation" type="text" pInputText placeholder="Add Designation"> 
+            </div>            
+            <div class="p-field p-col-12 p-md-9"></div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="date"><span class="colorred">*</span>Notice Date</label>
+                <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="date" styleClass="bgcoloricon"></p-calendar>
+              </div>
+              <div class="p-field p-col-12 p-md-3">
+                <label for="date"><span class="colorred">*</span>Acceptance Deadline</label>
+                <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="date" styleClass="bgcoloricon"></p-calendar>
+              </div>
+              <div class="p-field p-col-12 p-md-2">
+                <label for="payrate"><span class="colorred">*</span>Probation Hourly pay Rate</label>
+                <input id="payrate" name="payrate" type="text" pInputText placeholder="Add hourly pay details"> 
+            </div>
+           <div class="p-field p-col-12 p-md-2">
+                <label for="shares"><span class="colorred">*</span># of Shares</label>
+                <input id="shares" name="shares" type="text" pInputText placeholder="Add shares"> 
+            </div>
+            <div class="p-field p-col-12 p-md-2">
+                <label for="workdays"><span class="colorred">*</span>Workdays per week</label>
+                <input id="workdays" name="workdaydetails" type="text" pInputText placeholder="Add workday details"> 
+            </div>
+            <div class="p-field p-col-12 p-md-4">
+                <label for="contractinfo"><span class="colorred">*</span>Contract Description</label>
+                <input id="contractinfo" name="contractinfo" type="text" pInputText placeholder="Add Description"> 
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="date"><span class="colorred">*</span>Start Date</label>
+                <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="date" styleClass="bgcoloricon"></p-calendar>
+          </div>
+          <div class="p-field p-col-12 p-md-3">
+            <label for="date">Expiry Date</label>
+            <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="date" styleClass="bgcoloricon"></p-calendar>
+          </div>
+          <div class="p-field p-col-12 p-md-2">
+            <label for="contractowner"><span class="colorred">*</span>Contract Owner</label>
+            <p-dropdown [options]="contractowner"  [(ngModel)]="selectedOwner" name="contractowner" placeholder="Select"></p-dropdown>
+            <!-- <p>Selected Owner: {{selectedOwner || 'none'}}</p> -->
+        </div>
+        </div>      
+    </p-accordionTab>   <!--p-accordionTab_2 end-->
+    <p-accordionTab header="Signatories">
+        <div class="ui-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-3">
+                <label for="signtypes"><span class="colorred">*</span>Signature Type</label>
+                <p-dropdown [options]="signtypes"  [(ngModel)]="selectedSigntype1" name="signtypes" placeholder="Select"></p-dropdown>
+                <!-- <p>Selected Signtype: {{selectedSigntype1 || 'none'}}</p> -->
+            </div>
+            <div class="p-field p-col-12 p-md-9"></div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="innersign"><span class="colorred">*</span>Internal Signatory Name</label>
+                <input id="innersign" name="innersign" type="text" pInputText placeholder="Third Party"> 
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="outersign"><span class="colorred">*</span>External Signatory Name</label>
+                <input id="outersign" name="outersign" type="text" pInputText placeholder="Third Party"> 
+            </div>
+            <div class="p-field p-col-12 p-md-6"></div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="innertitle">Internal Signatory Title</label>
+                <input id="innertitle" name="innertitle" type="text" pInputText placeholder="Third Party"> 
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="outertitle">External Signatory Title</label>
+                <input id="outertitle" name="outertitle" type="text" pInputText placeholder="Third Party"> 
+            </div>
+            <div class="p-field p-col-12 p-md-6"></div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="place">Place</label>
+                <input id="place" name="place" type="text" pInputText placeholder="Add Place"> 
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="date">Date</label>
+                <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="date" styleClass="bgcoloricon"></p-calendar>
+          </div>
+        </div>     
+    </p-accordionTab>   <!--p-accordionTab_3 end-->
+    <p-accordionTab header="Datatype Controls Input(Optional View Purpose)">
+        <div class="ui-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-3">
+                <label for="signtypes">Datatype1 Dropdown</label>
+                <p-dropdown [options]="signtypes"  [(ngModel)]="selectedSigntype1" name="signtypes" placeholder="Select"></p-dropdown>
+                <!-- <p>Selected Signtype: {{selectedSigntype1 || 'none'}}</p> -->
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="signtypes">Datatype2 Multiselect Dropdown</label>
+                <p-multiSelect [options]="cars" [(ngModel)]="selectedCars1"></p-multiSelect>
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="number"><span class="colorred">*</span>Datatype3 Number</label>
+                <p-inputNumber [(ngModel)]="value1">
+                </p-inputNumber>
+                <!-- {{value1}} -->
+            </div>
+            <div class="p-field p-col-12 p-md-9">
+                <label for="textarea1">Datatype4 TextArea</label>
+                <textarea rows="8" cols="30" pInputTextarea placeholder="Type here..."></textarea>
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="currency1">India</label>
+                <p-inputNumber [(ngModel)]="value11" mode="currency" currency="INR" currencyDisplay="code" locale="en-IN"></p-inputNumber>            
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="decimal1">Dataype6 Decimal</label>
+                <p-inputNumber [(ngModel)]="value2" mode="decimal" [useGrouping]="false"></p-inputNumber>
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+                <label for="date">Date</label>
+                <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy" [showIcon]="true" name="date" styleClass="bgcoloricon"></p-calendar>
+          </div>
+        </div>  
+    </p-accordionTab> <!--p-accordionTab_4 end-->
+</p-accordion> <!--Accordian End here-->
+</p-scrollPanel>
+<hr class="bordermargin-lr">
+<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+          <div class="Sundeus-button-ui">
+            <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+            <button pButton type="button" label="Continue" class="ui-button-primary p-button" routerLink = "/app/contract/form/step3"></button>
+        </div>
+    </div>
+</div>
+</div>   <!--p-col-12 enddd-->
+</div>   <!--p-grid endd-->

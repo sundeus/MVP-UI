@@ -1,0 +1,111 @@
+<div class="layout-main">
+    <div class="layout-content">
+       <div class="p-grid">
+           <div class="p-col-12">
+                <!-- Top hedaer Title div_start  -->
+               <div class="p-grid ui-fluid">
+                   <div class="p-col-12 p-md-9">
+                       <span class="title-caption">Create Notifications</span>
+                   </div>
+                   <div class="p-col-12 p-md-3"></div>
+           </div>
+              <!-- Top hedaer Title div_end -->
+    <!-- <form action=""> -->
+        <p-card  styleClass="ui-card-shadow">
+            <div class="py-mandatoryline">
+              <p>**All Fields are mandatory</p>
+            </div>
+           <!--1st Row-->
+            <div class="ui-fluid p-formgrid p-grid">
+                <div class="p-field p-col">
+                    <label for="notificationid">Notifiation ID</label>
+                    <input id="notificationid" name="notificationid1" type="text" pInputText placeholder="System Generated"> 
+                </div>
+                <div class="p-field p-col">
+                    <label for="notificationname">Notification Name</label>
+                    <input id="notificationname" name="notificationname" type="text" pInputText placeholder="Add Notification Name"> 
+                </div>
+                <div class="p-field p-col">
+                    <label for="notificationtype">Notification Type</label>
+                    <p-dropdown [options]="notificationtypes" [(ngModel)]="selectednotitype1" name="notitypes" placeholder="Select a Type"></p-dropdown>
+                     <!-- <p>Selected notitype1: {{selectednotitype1 || 'none'}}</p> -->
+                </div>
+                <div class="p-field p-col">
+                    <label for="contracttype">Contract Type</label>
+                    <p-multiSelect [options]="contracttype" name="contracttype"></p-multiSelect>
+                </div>
+                <div class="p-field p-col">
+                    <label for="triggerbasedon">Trigger (Action / Event)</label>
+                    <p-multiSelect [options]="triggerbasedon" name="triggerbasedon"></p-multiSelect>
+                </div>
+            </div>
+               <!--1st Row end-->
+            <div class="p-grid">
+                <div class="p-col-9 grayborder-r">
+                  <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-9">
+                    <label for="sendto1">Send To</label>
+                     <p-chips [(ngModel)]="values2" separator=","></p-chips>
+                    </div>
+                    <div class="p-field p-col-3">
+                        <label for="selectpreuser">Add Users From List</label>
+                       <p-multiSelect [options]="selectpreuser" name="selectpreuser"></p-multiSelect>
+                </div>
+                <div class="p-field p-col-9">
+                        <label for="ccto">CC To</label>
+                        <p-chips [(ngModel)]="values3" separator=","></p-chips>
+                    </div>
+                    <div class="p-field p-col-3">
+                      <label for="cctopreuser">Select Users From List</label>
+                        <p-multiSelect [options]="cctopreuser" name="cctopreuser"></p-multiSelect>
+                    </div>
+                   <div class="p-field p-col-12">
+                        <label for="subject">Subject</label>
+                        <input id="subject" name="subject" type="text" pInputText placeholder="Add Subject"> 
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="subject">Email Body</label>
+                        <p-editor [(ngModel)]="text1" [style]="{'height':'255px'}" name="editormsg" placeholder="Type your message here..."></p-editor>
+                           <!-- <p>Value: {{text1||'empty'}}</p> -->
+                       <!-- <button pButton type="button" label="Clear" icon="pi pi-times" (click)="text1=null"></button> -->
+                    </div>
+                </div>
+            </div>
+            <!--Advanced_ListBox with Card section start-->
+            <div class="p-col-3">
+                 <h3 style="margin: 6px 0px;">Select Metadata to insert in Email</h3>
+                <!-- <p-card styleClass="p-cardbox"> -->
+                    <div class="py-mandatoryline">
+                      <p class="text-color-gray">Drag Metedata to email body which you would like to include in your email or subject.</p>
+                     </div>
+                    <!-- <p-scrollPanel [style]="{width: '100%', height: '200px'}" styleClass="custombar1"> -->
+                          <p-listbox [options]="dragmetadatadalist" [(ngModel)]="selectedmetadata" [checkbox]="false" [filter]="true" optionLabel="label">
+                            <!-- <p-scrollPanel [style]="{width: '100%', height: '200px'}" styleClass="custombar1"></p-scrollPanel> -->
+                            <!-- <p-header>Cars</p-header> -->
+                          </p-listbox>
+                    <!-- </p-scrollPanel> -->
+                  <!-- <p>Selected metadata: <span *ngFor="let c of selectedmetadata" style="margin-right: 10px">{{c.label}</span></p> -->
+             <!-- </p-card> -->
+            </div>
+            <!--end Advanced_ListBox with Card section-->
+            </div>     <!--2nd Row end-->
+            <hr class="bordermargin-lr">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3">
+                      <div class="Sundeus-button-ui">
+                        <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+                        <button pButton type="button" label="Save" class="ui-button-primary p-button"></button>
+                    </div>
+                </div>
+            </div>
+            <!--3rd Row end-->
+           </p-card>
+        <!-- </form> -->
+          </div>
+       </div>       <!--top grid end-->
+       
+    </div>       <!--layout-content end-->
+   </div>       <!--layout-main end-->

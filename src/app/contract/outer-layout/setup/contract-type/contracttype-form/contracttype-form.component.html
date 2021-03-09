@@ -1,0 +1,325 @@
+<div class="layout-main">
+    <div class="layout-content">
+       <div class="p-grid">
+           <div class="p-col-12">
+                <!-- Top hedaer Title div_start  -->
+               <div class="p-grid ui-fluid">
+                   <div class="p-col-12 p-md-9">
+                       <span class="title-caption">Add Contract Type</span>
+                   </div>
+                   <div class="p-col-12 p-md-3"></div>
+           </div>
+              <!-- Top hedaer Title div_end -->
+        <!--Tab_View compo start-->
+        <p-tabView>
+            <p-tabPanel header="Contract Type">
+            <!--Mandatory Line section start-->
+            <div class="p-grid p-nogutter pt-innerpart">
+                <div class="p-col-6">
+                    <div class="py-mandatoryline">
+                        <p>**Fields marked with <span class="colorred">*</span> are mandatory</p>
+                    </div>                
+                </div>
+                <div class="p-col-6">
+                  <span class="customicon"><i class="fa fa-expand" aria-hidden="true" style="padding-right: 5px; transform: rotate(136deg);"></i>Expand All</span>
+                </div>
+            </div>
+               <!--default accordian_comp start-->
+               <p-scrollPanel [style]="{width: '100%', height: '390px'}" styleClass="custombar1">
+                <!-- <div class="whitebackground-ht1"> -->
+                <p-accordion>
+                  <p-accordionTab header="Contract Type Name" [selected]="true">
+                    <!--formfrid with input_field-->
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12 p-md-3">
+                            <label for="ctypename"><span class="colorred">*</span>Contract Type Name</label>
+                            <input id="ctypename" name="ctyname" type="text" pInputText placeholder="Add Contract Type Name"> 
+                        </div>
+                        <div class="p-field p-col-12 p-md-9"></div>
+                        <div class="p-field p-col-12 p-md-6">
+                            <label for="cdescription"><span class="colorred">*</span>Contract Description</label>
+                            <input id="cdescription" name="continfo" type="text" pInputText placeholder="Add Contract Description"> 
+                        </div>
+                        <div class="p-field p-col-12 p-md-3">
+                            <label for="version">Version</label>
+                            <input id="version" name="contractversion" type="text" pInputText placeholder="System Generated"> 
+                        </div>
+                    </div>
+                </p-accordionTab>   <!--accordiontab_1 enddd-->
+                <p-accordionTab header="Contract Details">
+                 <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="label1"><span class="colorred">*</span>Label</label>
+                        <input id="label1" name="label1" type="text" pInputText placeholder="Add Label"> 
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="datatypes"><span class="colorred">*</span>Data Type</label>
+                        <p-dropdown [options]="datatypes" [(ngModel)]="selecteddatatype1" name="datatype1" placeholder="Select a DataType"></p-dropdown>
+                        <!-- <p>Selected Car: {{selecteddatatype1 || 'none'}}</p> -->
+                    </div>
+                    <!-- <div class="p-field p-col-12 p-md-6"></div> -->
+                    <div class="p-field p-col-12 p-md-6" *ngIf="selecteddatatype1 == 'Multiselect Dropdown' || selecteddatatype1 == 'Dropdown' || selecteddatatype1 == 'Boolean'">
+                        <label for="values">Values</label>
+                        <!-- <input id="values" name="datavalues" type="text" pInputText placeholder="Add Details">  -->
+                        <p-chips [(ngModel)]="values1" name="chipvalues" placeholder="Add Details"></p-chips>
+                     </div>
+                     <div class="p-field p-col-12 p-md-3" *ngIf="selecteddatatype1 == 'Master Data'">
+                        <label for="mastertype">Master Type</label>
+                        <p-dropdown [options]="mastertypes" [(ngModel)]="selectedmastertype1" name="mastertype1" placeholder="Select a Mastertype"></p-dropdown>
+                        <!-- <p>Selected Car: {{selectedmastertype1 || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col-12 p-md-3" *ngIf="selecteddatatype1 == 'Master Data'">
+                        <label for="linkmetadata">Link Metadata</label>
+                        <p-dropdown [options]="linkmetadatas" [(ngModel)]="selectedlinkmdata" name="linkmetadata" placeholder="Select a DataType"></p-dropdown>
+                        <!-- <p>Selected Car: {{selectedlinkmdata || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="defaultvalue">Default Value</label>
+                        <input id="defaultvalue" name="defaultvalue1" type="text" pInputText placeholder="Add default Value"> 
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="sectionname">Section Name</label>
+                        <!-- <input id="sectionname" name="sectionname1" type="text" pInputText placeholder="Add section Name">  -->
+                        <p-dropdown [options]="sectionnames" [(ngModel)]="selectedSecname" editable="true" name="sectionname1" placeholder="Select a Section Name"></p-dropdown>
+                        <!-- <p>Selected Sectionname: {{selectedSecname || 'none'}}</p>                     -->
+                    </div>
+                    <div class="p-field p-col-12 p-md-2">
+                        <label for="sequence">Sequence #</label>
+                        <input id="sequence" name="sequence1" type="text" pInputText placeholder="Add Sequence"> 
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="helptext">Help Text</label>
+                        <input id="helptext" name="helptext1" type="text" pInputText placeholder="Add Help Text"> 
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="dependenton">Dependent On</label>
+                        <input id="dependenton" name="dependenton1" type="text" pInputText placeholder="Add Sequence #"> 
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="inheritedClist">Inherited Contract List</label>
+                        <p-dropdown [options]="inheritedlists" [(ngModel)]="selectedinheritedlist" name="inheritedlist" placeholder="Select"></p-dropdown>
+                        <!-- <p>Selected Car: {{selectedinheritedlist || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="inheritedfrom">Inherited From</label>
+                        <p-dropdown [options]="inheritedfroms" [(ngModel)]="selectedinheritedfrom" name="inheritedfrom" placeholder="Select"></p-dropdown>
+                        <!-- <p>Selected Car: {{selectedinheritedfrom || 'none'}}</p> -->
+                    </div>
+                </div>
+                <!-- CheckBoxs comp with lables -->
+                <div class="p-formgroup-inline">
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option1" value="Editable" [(ngModel)]="checkoptions" inputId="option1"></p-checkbox>
+                        <label for="option1">Editable</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option2" value="Required" [(ngModel)]="checkoptions" inputId="option2"></p-checkbox>
+                        <label for="option2">Required</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option3" value="Hidden" [(ngModel)]="checkoptions" inputId="option3"></p-checkbox>
+                        <label for="option3">Hidden</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option4" value="Summary Display" [(ngModel)]="checkoptions" inputId="option4"></p-checkbox>
+                        <label for="option4">Summary Display</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option5" value="Editable Post Exceution" [(ngModel)]="checkoptions" inputId="option5"></p-checkbox>
+                        <label for="option5">Editable Post Exceution</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option6" value="Enable Search" [(ngModel)]="checkoptions" inputId="option6"></p-checkbox>
+                        <label for="option6">Enable Search</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option7" value="Dependent" [(ngModel)]="checkoptions" inputId="option7"></p-checkbox>
+                        <label for="option7">Dependent</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="option8" value="Inherited" [(ngModel)]="checkoptions" inputId="option8"></p-checkbox>
+                        <label for="option8">Inherited</label>
+                    </div>
+                </div>        <!-- CheckBoxs comp with lables endd -->
+           <button pButton type="button" label="Add" class="ui-button-primary" routerLink = ""></button>
+        <!--Table_1 start-->
+       <p-table [columns]="cols" [value]="customtabledata" [scrollable]="true" scrollHeight="200px" (sortFunction)="customSort($event)" [customSort]="true" [paginator]="false" [rows]="10" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} records" [resizableColumns]="true" styleClass="ui-table-paddtop">
+               <ng-template pTemplate="header" let-columns>
+               <tr>
+                    <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                         {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th> -->
+                    <th [pSortableColumn]="columns[0].field">
+                        {{columns[0].header}}
+                       <p-sortIcon [field]="columns[0].field"></p-sortIcon>
+                   </th>
+                   <th [pSortableColumn]="columns[1].field">
+                    {{columns[1].header}}
+                   <p-sortIcon [field]="columns[1].field"></p-sortIcon>
+               </th>
+                 <th [pSortableColumn]="columns[2].field">
+                      {{columns[2].header}}
+                     <p-sortIcon [field]="columns[2].field"></p-sortIcon>
+                 </th>
+                     <th [pSortableColumn]="columns[3].field">
+                            {{columns[3].header}}
+                        <p-sortIcon [field]="columns[3].field"></p-sortIcon>
+                  </th>
+                <th>
+                     {{columns[4].header}}
+                </th>
+             </tr>
+               </ng-template>
+               <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                  <!-- <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                  </td> -->
+                <td>{{rowData['Label']}}</td>
+                <td>{{rowData['Default Value']}}</td>
+                <td>{{rowData['Section Name']}}</td>
+                <td>{{rowData['Sequence #']}}</td>
+              <td class="listactionicon">
+                     <img src="dist/SundeusCLMImg/List Page icons/Editlatest.svg" alt="" style="padding-right: 10px;">
+                     <img src="dist/SundeusCLMImg/List Page icons/Deletelatest.svg" alt="">
+              </td>
+            </tr>
+             </ng-template>
+        </p-table>   <!--table_1 end -->
+             </p-accordionTab>      <!--accordiontab_2 enddd-->  
+           </p-accordion>      <!--default accordian comp enddd-->
+        </p-scrollPanel> 
+
+           <!-- </div> -->
+             <!--Buttons-->
+             <hr class="bordermargin-lr">
+             <div class="p-grid htbottom-buttons">
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3">
+                      <div class="Sundeus-button-ui">
+                        <button pButton type="button" label="Cancel" class="ui-button-secondary"></button>
+                        <button pButton type="button" label="Save" class="ui-button-primary p-button bottomactionbtns"></button>
+                        <button pButton type="button" label="Next" class="ui-button-primary p-button"></button>
+                    </div>
+                </div>
+            </div>
+        
+            </p-tabPanel>      <!--tabpanel_1 end-->
+            <p-tabPanel header="Association">
+                <div class="whitebackground-ht1">
+                <div class="ui-fluid p-formgrid p-grid pt-innerpart">
+                <div class="p-col-10">
+                    <div class="p-grid">
+                    <div class="p-field p-col-3">
+                        <label for="associationname">Association Name</label>
+                        <input id="associationname" name="associationname1" type="text" pInputText placeholder="Add Association Name"> 
+                    </div>
+                    <div class="p-field p-col-3">
+                        <label for="associationstage">Association Stage</label>
+                        <p-dropdown [options]="associationstages" [(ngModel)]="selectedstage1" name="assostages" placeholder="Select a Association Stage"></p-dropdown>
+                        <!-- <p>Selected Car: {{selectedstage1 || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col-3">
+                        <label for="associationtype">Association Type</label>
+                        <p-dropdown [options]="associationtypes" [(ngModel)]="selectedtype1" name="assotype" placeholder="Select a Type"></p-dropdown>
+                        <!-- <p>Selected Car: {{selectedtype1 || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col-3">
+                        <label for="associatedrecord">Associated Record</label>
+                        <input id="associatedrecord" name="associatedrecords" type="text" pInputText placeholder="Add Associated Record"> 
+                    </div>
+                </div>
+                </div>
+            <div class="p-col-2">
+                <div class="p-grid">
+                    <div class="p-field p-col">
+                        <label for="mandatory">Mandatory</label>
+                        <div class="p-col-12"><p-checkbox name="group1" value="mandatory" label="" [(ngModel)]="selectedmandatory" inputId="ny"></p-checkbox></div>
+                        <!-- <p-toggleButton onLabel="Yes" offLabel="NO" [style]="{'width':'50px','border-radius':'25px'}" styleClass="togglebutton"></p-toggleButton>                     -->
+                    </div>
+                    <div class="p-field p-col">
+                        <button pButton type="button" label="Add" class="ui-button-primary" style="margin-top: 20px;" routerLink = "#"></button>
+                    </div>
+                </div>
+            </div>
+            </div>      <!--form end-->
+                <hr>
+                <!--Table_2 Start-->
+                <p-table [columns]="cols1" [value]="Associationtabledata" [scrollable]="true" scrollHeight="200px" (sortFunction)="customSort($event)" [customSort]="true" [paginator]="false" [rows]="10" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} records" [resizableColumns]="true" styleClass="ui-table-paddtop">
+                   <ng-template pTemplate="header" let-columns>
+                   <tr>
+                        <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                             {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th> -->
+                        <th [pSortableColumn]="columns[0].field">
+                            {{columns[0].header}}
+                           <p-sortIcon [field]="columns[0].field"></p-sortIcon>
+                       </th>
+                       <th [pSortableColumn]="columns[1].field">
+                        {{columns[1].header}}
+                       <p-sortIcon [field]="columns[1].field"></p-sortIcon>
+                   </th>
+                     <th [pSortableColumn]="columns[2].field">
+                          {{columns[2].header}}
+                         <p-sortIcon [field]="columns[2].field"></p-sortIcon>
+                     </th>
+                         <th [pSortableColumn]="columns[3].field">
+                                {{columns[3].header}}
+                            <p-sortIcon [field]="columns[3].field"></p-sortIcon>
+                      </th>
+                      <th [pSortableColumn]="columns[4].field">
+                        {{columns[4].header}}
+                    <p-sortIcon [field]="columns[4].field"></p-sortIcon>
+              </th>
+                    <th>
+                         {{columns[5].header}}
+                    </th>
+                 </tr>
+                   </ng-template>
+                   <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                      <!-- <td *ngFor="let col of columns">
+                            {{rowData[col.field]}}
+                      </td> -->
+                    <td>{{rowData['Association Name']}}</td>
+                    <td>{{rowData['Association Stage']}}</td>
+                    <td>{{rowData['Association Type']}}</td>
+                    <td>{{rowData['Association Record']}}</td>
+                    <td>{{rowData['Mandatory']}}</td>
+                  <td class="listactionicon">
+                         <img src="dist/SundeusCLMImg/List Page icons/Editlatest.svg" alt="" style="padding-right: 10px;">
+                         <img src="dist/SundeusCLMImg/List Page icons/Deletelatest.svg" alt="">
+                  </td>
+                </tr>
+                 </ng-template>
+            </p-table>   <!--table_2 end -->
+            </div>
+            <!--Buttons-->
+            <hr class="bordermargin-lr">
+            <div class="p-grid htbottom-buttons">
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3">
+                      <div class="Sundeus-button-ui">
+                        <button pButton type="button" label="Cancel" class="ui-button-secondary"></button>
+                        <button pButton type="button" label="Save" class="ui-button-primary p-button bottomactionbtns"></button>
+                        <button pButton type="button" label="Activate" class="ui-button-primary p-button"></button>
+                    </div>
+                </div>
+            </div>
+
+            </p-tabPanel>         <!--tabpanel_2 end-->
+            <!-- </div> -->
+        </p-tabView>   <!--Tab_View compo enddd-->
+          </div>
+       </div>      <!--top grid end-->
+       
+    </div>       <!--layout-content end-->
+   </div>       <!--layout-main end-->

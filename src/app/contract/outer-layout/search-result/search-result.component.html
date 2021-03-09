@@ -1,0 +1,82 @@
+<!-- <p>search-result works!</p> -->
+<div class="layout-main">
+    <div class="layout-content">
+       <div class="p-grid">
+           <div class="p-col-12">
+                <!-- Top hedaer Title div_start  -->
+               <div class="p-grid ui-fluid">
+                   <div class="p-col-12 p-md-9">
+                       <span class="title-caption">Global Search</span>
+                   </div>
+                   <div class="p-col-12 p-md-3"></div>
+           </div>
+              <!-- Top hedaer Title div_end -->
+        <p-card  styleClass="ui-card-shadow">
+            <div class="py-mandatoryline">
+                <p>**All Fields are mandatory</p>
+            </div>
+           <!--1st Row-->
+            <div class="ui-fluid p-formgrid p-grid">
+                <div class="p-field p-col-3">
+                    <label for="contracttype">Contract Type</label>
+                    <p-dropdown [options]="contracttypes" [(ngModel)]="selectedCtype1" editable="true" name="contracttype" placeholder="Select a Contract Type"></p-dropdown>
+                    <!-- <p>Selected Contract: {{selectedCtype1 || 'none'}}</p> -->
+                </div>
+                <div class="p-field p-col-3">
+                    <label for="contracttype">Contract Status</label>
+                    <p-dropdown [options]="contractstatus" [(ngModel)]="selectedCstatus" editable="true" name="contractstatus" placeholder="Select a Contract Status"></p-dropdown>
+                    <!-- <p>Selected Contract: {{selectedCstatus || 'none'}}</p> -->
+                </div>
+                <div class="p-field p-col-3">
+                    <label for="contracttype">Category</label>
+                    <p-dropdown [options]="category" [(ngModel)]="selectedCategory" editable="true" name="contractcategory" placeholder="Select a Category"></p-dropdown>
+                    <!-- <p>Selected Contract: {{selectedCategory || 'none'}}</p> -->
+                </div>
+                <div class="p-field p-col-3">
+                    <label for="ttype">Transaction Type</label>
+                    <p-dropdown [options]="ttypes" [(ngModel)]="selectedTtype" editable="true" name="ttype" placeholder="Select Transaction Type"></p-dropdown>
+                    <!-- <p>Selected Contract: {{selectedTtype || 'none'}}</p> -->
+                </div>
+                <div class="p-field p-col-3">
+                    <label for="obtype">Obligation Type</label>
+                    <p-dropdown [options]="obtypes" [(ngModel)]="selectedObtype" editable="true" name="obtype" placeholder="Select Obligation Type"></p-dropdown>
+                    <!-- <p>Selected Contract: {{selectedObtype || 'none'}}</p> -->
+                </div>
+                <div class="p-field p-col-3">
+                    <label for="addclause">Clause Name</label>
+                    <input id="addclause" name="addclause" type="text" pInputText placeholder="Add Clause Name"> 
+                </div>
+                <div class="p-field p-col-3">
+                    <label for="clauseinfo">Clause Description</label>
+                    <input id="clauseinfo" name="clauseinfo" type="text" pInputText placeholder="Add Description"> 
+                </div>
+                <div class="p-field p-col-3">
+                    <label for="languages">Language</label>
+                    <p-dropdown [options]="languages" [(ngModel)]="selectedLanguage1" editable="true" name="languages" placeholder="Select a Language"></p-dropdown>
+                    <!-- <p>Selected Language: {{selectedLanguage1 || 'none'}}</p> -->
+                </div>
+              
+             
+            
+             </div>
+               <!--1st Row end-->
+           <hr class="bordermargin-lr">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3"></div>
+                <div class="p-col-12 p-md-6 p-lg-3">
+                      <div class="Sundeus-button-ui">
+                        <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+                        <button pButton type="button" label="Save" class="ui-button-primary p-button"></button>
+                    </div>
+                </div>
+            </div>
+            <!--2nd Row end-->
+           </p-card>
+          </div>
+       </div>       <!--top grid end-->
+       
+    </div>       <!--layout-content end-->
+   </div>       <!--layout-main end-->
+

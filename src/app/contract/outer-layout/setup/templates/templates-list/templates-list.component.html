@@ -1,0 +1,122 @@
+<!-- <p>templates-list works!</p> -->
+    <div class="layout-main">
+    <div class="layout-content">
+       <div class="p-grid">
+           <div class="p-col-12">
+                <!-- Top hedaer Title and Serch placeholder div_start  -->
+               <div class="p-grid ui-fluid">
+                   <div class="p-col-12 p-md-9">
+                       <span class="title-caption">All Templates</span>
+                   </div>
+                   <div class="p-col-12 p-md-3">
+                       <div class="ui-inputgroup">
+                           <input type="text" pInputText placeholder="Search by">   
+                           <button pButton type="button" icon="pi pi-search" class="ui-button-warn Sundeus-golbal-serch"></button>      
+                       </div>
+                   </div>
+           </div>
+              <!-- Top hedaer Title and Serch placeholder div_end -->
+               <p-card  styleClass="ui-card-shadow">
+                   <div class="p-grid">
+                     <div class="p-col-9">
+                       <!-- <div class="p-grid"> 
+                        <label for="ctype" class="p-col-fixed">Contract Type</label>
+                        <div class="p-col">
+                          <p-dropdown [options]="Contracttypes" [(ngModel)]="selectedContractype1" name="selectctype" placeholder="Select Contract Type"></p-dropdown>
+                           <p>Selected Contracttype: {{selectedContractype1 || 'none'}}</p>
+                        </div>
+                      </div> -->
+                      <div class="p-formgroup-inline">
+                        <label for="ctype" class="p-col-fixed">Contract Type</label>
+                        <p-dropdown [options]="Contracttypes" [(ngModel)]="selectedContractype1" name="selectctype" placeholder="Select Contract Type"></p-dropdown>
+                      </div>
+                    </div>
+                       <div class="p-col-3">
+                           <div class="float-r">
+                           <!-- <button pButton type="button" label="Add Contract Type" class="ui-button-primary" routerLink = ""></button> -->
+                          <span class="tableicon-mr"><i class="fa fa-table" aria-hidden="true"></i></span>
+                          </div>
+                        </div>
+                   </div>
+                   <!--PrimeNg Sort&page Table-->
+            <div class="p-grid">
+               <div class="p-col-12">
+               <p-table [columns]="cols" [value]="customtabledata" (sortFunction)="customSort($event)" [customSort]="true" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true"
+               currentPageReportTemplate="Showing {first} to {last} of {totalRecords} records" [resizableColumns]="true">
+                  <ng-template pTemplate="header" let-columns>
+                  <tr>
+                       <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                           <p-sortIcon [field]="col.field"></p-sortIcon>
+                       </th> -->
+                       <th [pSortableColumn]="columns[0].field" style="width: 16%;">
+                           {{columns[0].header}}
+                          <p-sortIcon [field]="columns[0].field"></p-sortIcon>
+                      </th>
+                      <th [pSortableColumn]="columns[1].field">
+                        {{columns[1].header}}
+                        <p-sortIcon [field]="columns[1].field"></p-sortIcon>
+                  </th>
+                  <th [pSortableColumn]="columns[2].field" style="width: 8%;">
+                      {{columns[2].header}}
+                     <p-sortIcon [field]="columns[2].field"></p-sortIcon>
+                  </th>
+                  <th [pSortableColumn]="columns[3].field">
+                     {{columns[3].header}}
+                     <p-sortIcon [field]="columns[3].field"></p-sortIcon>
+                   </th>
+                   <th [pSortableColumn]="columns[4].field">
+                     {{columns[4].header}}
+                     <p-sortIcon [field]="columns[4].field"></p-sortIcon>
+                   </th>
+                    <th [pSortableColumn]="columns[5].field">
+                         {{columns[5].header}}
+                        <p-sortIcon [field]="columns[5].field"></p-sortIcon>
+                    </th>
+                        <th [pSortableColumn]="columns[6].field">
+                           {{columns[6].header}}
+                           <p-sortIcon [field]="columns[6].field"></p-sortIcon>
+                     </th>
+                <th [pSortableColumn]="columns[7].field" style="width: 8%;">
+                   {{columns[7].header}}
+                  <p-sortIcon [field]="columns[7].field"></p-sortIcon>
+              </th>
+              <th style="width: 8%;">
+                        {{columns[8].header}}
+            </th>
+        </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-rowData let-columns="columns">
+                   <tr>
+                     <!-- <td *ngFor="let col of columns">
+                           {{rowData[col.field]}}
+                     </td> -->
+                   <td class=""><a href="#">{{rowData['Template Name']}}</a></td>
+                   <td>{{rowData['Description']}}</td>
+                   <td>{{rowData['Version']}}</td>
+                   <td>{{rowData['Language']}}</td>
+                   <td>{{rowData['Created On']}}</td>
+                   <td>{{rowData['Created By']}}</td>
+                   <td>{{rowData['Last Updated On']}}</td>
+                   
+                   <td>
+                       <!-- <p-toggleButton [(ngModel)]="rowData['checked']" onLabel="Active" offLabel="Inactive" [style]="{'width':'75px','border-radius':'25px'}" styleClass="togglebutton">{{rowData['Status']}}</p-toggleButton> -->
+                       {{rowData['Status']}}
+                   </td>
+                <td class="listactionicon">
+                        <img src="dist/SundeusCLMImg/List Page icons/Editlatest.svg" alt="" style="padding-right: 10px;">
+                        <img src="dist/SundeusCLMImg/List Page icons/Viewlatest.svg" alt="" style="padding-right: 10px;">
+                        <img src="dist/SundeusCLMImg/List Page icons/Deletelatest.svg" alt="">
+                 </td>
+               </tr>
+                </ng-template>
+           </p-table>
+       </div>
+    </div>
+                   
+   </p-card>
+          </div>
+       </div>       <!--top_grid end-->
+       
+    </div>       <!--layout-content end-->
+   </div>       <!--layout-main end-->

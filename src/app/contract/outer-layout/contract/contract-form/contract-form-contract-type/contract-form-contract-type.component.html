@@ -1,0 +1,49 @@
+<!-- <p>contract-form-contract-type works!</p> -->
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="whitebackground-ht2">
+           <div class="py-mandatoryline">
+                    <p>**Fields marked with <span class="colorred">*</span> are mandatory</p>
+                </div>
+               <!--1st Row-->
+                <!-- <p-scrollPanel [style]="{width: '100%', height: '28em'}"> -->
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-3">
+                        <label for="contracttype">Contract Type</label>
+                        <p-dropdown [options]="contracttypes" [(ngModel)]="selectedCtype1" editable="true" name="contracttype" placeholder="Select a Contract Type"></p-dropdown>
+                        <!-- <p>Selected Contract: {{selectedCtype1 || 'none'}}</p> -->
+                    </div>
+                   <div class="p-field p-col-6">
+                        <label for="contractinfo">Contract Description</label>
+                        <input id="contractinfo" name="contractinfo" type="text" pInputText placeholder="Add Contract Description"> 
+                    </div>
+                    <div class="p-field p-col-3"></div>
+                    <div class="p-field p-col-3">
+                        <label for="transactiontypes">Transaction Type</label>
+                        <p-dropdown [options]="transactiontypes" [(ngModel)]="selectedTransaction1" editable="true" name="transactiontypes" placeholder="Select a Type"></p-dropdown>
+                        <!-- <p>Selected Transaction: {{selectedTransaction1 || 'none'}}</p> -->
+                    </div>
+                    <div class="p-field p-col-3">
+                        <label for="yesno">Would you like to infuse Artificial Intelligence ?</label>
+                      <p-toggleButton [(ngModel)]="checked2" onLabel="Yes" offLabel="NO" [style]="{'width':'75px','padding':'6px 0px','border-radius':'25px'}" styleClass="togglebutton"></p-toggleButton>                    
+                    </div>
+                </div>
+            <!-- </p-scrollPanel> -->
+          </div>
+                   <!--1st Row end-->
+               <hr class="bordermargin-lr">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-6 p-lg-3"></div>
+                    <div class="p-col-12 p-md-6 p-lg-3"></div>
+                    <div class="p-col-12 p-md-6 p-lg-3"></div>
+                    <div class="p-col-12 p-md-6 p-lg-3">
+                          <div class="Sundeus-button-ui">
+                            <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
+                            <button pButton type="button" label="Continue" class="ui-button-primary p-button" routerLink = "/app/contract/form/step2"></button>
+                        </div>
+                    </div>
+                </div>
+     </div>
+</div>
+              
+    
