@@ -12,7 +12,7 @@ import { ButtonModule } from 'primeng/button/button';
 import { SidebarModule } from '../customprimengmodules/sidebar/sidebar';
 import { TieredMenuModule } from 'primeng/tieredmenu/tieredmenu';
 import { CardModule } from 'primeng/card/card';
-import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table/table';
 import { ChartModule } from 'primeng/chart/chart';
@@ -41,14 +41,18 @@ import { PasswordModule } from 'primeng/password/password';
 
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     ForgotPasswordComponent
+    
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
   CommonModule,
     AuthRoutingModule,CommonModule,
     ContractRoutingModule,
@@ -88,6 +92,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     TabMenuModule,
     PasswordModule,
 
+  ],
+  providers:[],
+  exports:[
+    LoginComponent
   ]
 })
 export class AuthModule { }
