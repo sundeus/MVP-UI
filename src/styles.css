@@ -405,43 +405,103 @@ footer.footer {
 }
 /*Login_page css*/
 .p-grid.bkground-image{
-    background-image: url(/dist/SundeusCLMImg/Sundeus_login.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    /* height: 45.6rem; */
-    margin: 0rem;
+  background-image: url(/dist/SundeusCLMImg/Sundeus_login.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* position: absolute; */
+  height: 100vh;
+  /* width: 100%; */
+  /* height: 45.6rem; */
+  margin: 0rem;
 }
 .title1{
-    color: #ffffff;
-    font-size: 26px;
+  color: #ffffff;
+  font-size: 26px;
 }
 .subtitle{
-    color: #ffffff;
-    font-size: 19px;
-    margin-top: 0px !important;
+  color: #ffffff;
+  font-size: 22px;
+  margin-top: 0px !important;
 }
-.loginbox{
-    margin-top: 12rem;
+.Sundeusloginbox{
+position: absolute;
+margin-top: 9rem;
+margin-left: 4rem;
 }
 .w-19 {
-    width: 19rem;
+  width: 21rem;
 }
 .w-20 {
-    width: 20.6rem;
+  width: 23.6rem;
+  height: 36px;
+  border-radius: 0px !important;
+
 }
 .spacingbottom-1{
-    margin-bottom: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 .Cardheader {
-    padding: 1rem;
-    color: #ffffff;
-    background-color: #FF8C00;
-    font-size: 18px;
+  padding: 1rem 1rem 1rem 1.5rem;
+  color: #ffffff;
+  background-color: #FF8C00;
+  font-size: 18px;
+}
+.ui-card-shadow.cardcontent .ui-card-body{
+padding: 1em 1em 1em 1.5em;;
+}
+.ui-card-shadow.cardcontent .ui-inputgroup .ui-inputgroup-addon{
+min-width: 3em !important;
+}
+.ui-card-shadow.cardcontent .ui-inputgroup .ui-inputgroup-addon:first-child{
+border-top-left-radius: 0!important;
+border-bottom-left-radius:0 ;
+}
+.ui-card-shadow.cardcontent .ui-inputtext{
+border-radius: 0px !important;
+}
+.ui-card-shadow.cardcontent.ui-corner-all{
+border-radius: 0px !important;
 }
 
+/* Forgot_Password_Css */
+.bg-image{
+background-image: url(/dist/SundeusCLMImg/Sundeus_login.png);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+height: 96vh;
+filter: blur(8px);
+-webkit-filter: blur(8px);
+/* margin: 0rem; */
+}
+.resetbox{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+}
+.w-tb-email{
+width: 19rem !important;
+height: 3em;
+}
+.ui-card-shadow.cardcontent.box-p .ui-card-title{
+font-size: 1.2em !important;
+color: #012164 !important;
+}
+.ui-card-shadow.cardcontent.box-p .ui-card-subtitle{
+margin-bottom: 1.5em;
+margin-top: 0.75em;
+font-weight: lighter;
+}
+.ui-card-shadow.cardcontent.box-p .ui-card-body{
+padding: 2em 2em 3em 2em !important;
+}
+
+.ui-card-shadow.sundeus-card-ht{       /*reusable class*/
+  min-height: 490px;
+}
 /* @media (max-width: 1366px) {
     .card.myTasktable {
     height: 27em !important;

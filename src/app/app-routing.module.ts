@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './auth/login/login.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+
 import { OuterLayoutComponent } from './contract/outer-layout/outer-layout.component';
 import { DashboardComponent } from './contract/outer-layout/dashboard/dashboard.component';
 import { ContractComponent } from './contract/outer-layout/contract/contract.component';
@@ -47,11 +49,13 @@ import { TemplatesComponent } from './contract/outer-layout/setup/templates/temp
 import { TemplatesListComponent } from './contract/outer-layout/setup/templates/templates-list/templates-list.component';
 import { OrganisationDetailsComponent } from './contract/outer-layout/setup/organisation-details/organisation-details.component';
 import { OrganisationdetailsFormComponent } from './contract/outer-layout/setup/organisation-details/organisationdetails-form/organisationdetails-form.component';
+import { from } from 'rxjs';
 
 
 const routes: Routes = [
 {path: 'login' , component: LoginComponent},
-  { 
+{path: 'forgotpwd' , component: ForgotPasswordComponent},
+  {
     path: 'app', component: OuterLayoutComponent,
     children:[
       { path : '', redirectTo: '/app/dashboard', pathMatch: 'full'},
@@ -94,7 +98,7 @@ const routes: Routes = [
        },
       ]
      },
-     
+
      { path: 'search', component: SearchResultComponent },
 
      { path: 'usermgmt', component: UserMgmtComponent,
@@ -126,41 +130,42 @@ const routes: Routes = [
         children: [
           { path: 'list', component: NotificationListComponent },
           { path: 'form', component: NotificationFormComponent },
-        ] 
+        ]
       },
       { path: 'contract-type', component: ContractTypeComponent,
         children: [
           { path: 'list', component: ContracttypeListComponent },
           { path: 'form', component: ContracttypeFormComponent },
-        ] 
+        ]
       },
       { path: 'clauses', component: ClausesComponent,
       children: [
         { path: 'list', component: ClausesListComponent },
         { path: 'create', component: AddclauseFormComponent },
         { path: 'editclause', component: AddclauseFormComponent },
-      ] 
+      ]
     },
     { path: 'templates', component: TemplatesComponent,
     children: [
       { path: 'list', component: TemplatesListComponent },
-    ] 
+    ]
   },
   { path: 'organisation-details', component: OrganisationDetailsComponent,
   children: [
     { path: 'form', component: OrganisationdetailsFormComponent },
-   ] 
+   ]
   },
       ]
     },
 
     ]
   },
-   
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  // import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

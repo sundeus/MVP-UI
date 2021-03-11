@@ -50,6 +50,8 @@ import {DialogModule} from 'primeng/dialog';
 import {TabMenuModule} from 'primeng/tabmenu';
 
 import { LoginComponent } from './auth/login/login.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+
 import {PasswordModule} from 'primeng/password';
 import { OuterLayoutComponent } from './contract/outer-layout/outer-layout.component';
 import { DashboardComponent } from './contract/outer-layout/dashboard/dashboard.component';
@@ -97,6 +99,7 @@ import { RolesComponent } from './contract/outer-layout/user-mgmt/role/role-form
 import { PermissionsComponent } from './contract/outer-layout/user-mgmt/role/role-form/permissions/permissions.component';
 import { SearchResultComponent } from './contract/outer-layout/search-result/search-result.component';
 import { TieredMenuModule } from './customprimengmodules/tieredmenu/tieredmenu';
+
 
 
 
@@ -150,6 +153,7 @@ import { TieredMenuModule } from './customprimengmodules/tieredmenu/tieredmenu';
     RolesComponent,
     PermissionsComponent,
     LoginComponent,
+    ForgotPasswordComponent,
     SearchResultComponent
   ],
   imports: [
@@ -188,7 +192,7 @@ import { TieredMenuModule } from './customprimengmodules/tieredmenu/tieredmenu';
     FileUploadModule,
     TabMenuModule,
     PasswordModule
-   
+
     // MenuItem
   ],
   providers: [],

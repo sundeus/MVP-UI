@@ -7,14 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   checked: boolean = false;
-  displayModal: boolean;  //Modal_forgot Password
 
-  constructor() { }
+  constructor() { }  //end of constructor_method
 
   ngOnInit(): void {
-  }
+  } //end of ngOnit() method
 
-  showModalDialog() {
-    this.displayModal = true;
-}
-}
+
+}  //end of export_class

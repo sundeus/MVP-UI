@@ -39,11 +39,17 @@ import { FileUploadModule } from 'primeng/fileupload/fileupload';
 import { TabMenuModule } from 'primeng/tabmenu/tabmenu';
 import { PasswordModule } from 'primeng/password/password';
 
+import { LoginComponent } from './login/login.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LoginComponent,
+    ForgotPasswordComponent
+  ],
   imports: [
-    CommonModule,
+  CommonModule,
     AuthRoutingModule,CommonModule,
     ContractRoutingModule,
     BrowserModule,
@@ -81,6 +87,7 @@ import { PasswordModule } from 'primeng/password/password';
     FileUploadModule,
     TabMenuModule,
     PasswordModule,
+
   ]
 })
 export class AuthModule { }
