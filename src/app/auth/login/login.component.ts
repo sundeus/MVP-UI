@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   checked: boolean = false;
   formdata:FormGroup;
-  
+
   constructor(private userService: UserService,private activatedRoute: ActivatedRoute ,private fb:FormBuilder) {
     this.formdata = new FormGroup({
       username :new FormControl(""),
