@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   checked: boolean = false;
   formdata:FormGroup;
   
-  constructor(private userService: UserService,private activatedRoute: ActivatedRoute ,private fb:FormBuilder) {
+  constructor(private userService: UserService,private activatedRoute: ActivatedRoute ) {
     this.formdata = new FormGroup({
       username :new FormControl(""),
       password : new FormControl("")
@@ -23,9 +23,11 @@ export class LoginComponent implements OnInit {
   } //end of ngOnit() method
 
   signInWithUsernamePassword(){
+    console.log("logged in");
     this.userService.signInWithUsernamePassword(this.formdata.value.username,
       this.formdata.value.password,this.activatedRoute.snapshot.paramMap.get('redirect_url'));
 return 0;
-  }
 
+  }
+  
 }  //end of export_class

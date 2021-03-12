@@ -53,7 +53,7 @@ import { from } from 'rxjs';
 
 
 const routes: Routes = [
-{path: 'login' , component: LoginComponent},
+{path: '', component: LoginComponent},
 {path: 'forgotpwd' , component: ForgotPasswordComponent},
   {
     path: 'app', component: OuterLayoutComponent,

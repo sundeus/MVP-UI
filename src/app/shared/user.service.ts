@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Users } from './users.model';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
@@ -29,27 +29,33 @@ export class UserService {
 
 
   signInWithUsernamePassword(username:String,password:String,redirect_url:string):void{
-    document.getElementById('loader').style.display='block';
+   // console.log("logged in");
+    //document.getElementById('loader').style.display='block';
+  //  console.log("logged in");
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
+    
   let User = Object();
     User.emailAddress = username;
     User.password = password;
+    console.log(User.password);
     this.http.post(this.contractBaseUrl+"/api/authenticateuser",User,httpOptions).toPromise().then((response)=>{
+      console.log(response); 
       this.loggedIn = true;
       this.loggedinUser = response as Users;
       console.log("logged in");
       console.log(response);
    //console.log(this.loggedinUser);
+   
      
        
           
         
    //   console.log(res);
-        })
+        });
         
    
      // this.router.navigate([decodeURIComponent(redirect_url)])

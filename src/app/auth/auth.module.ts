@@ -44,6 +44,7 @@ import { PasswordModule } from 'primeng/password';
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     ReactiveFormsModule,
   CommonModule,
-    AuthRoutingModule,CommonModule,
+  RouterModule,
+  FormsModule,
     ContractRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -91,10 +93,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FileUploadModule,
     TabMenuModule,
     PasswordModule,
+    FormsModule,
 
   ],
   providers:[],
   exports:[
+    LoginComponent
   ]
 })
 export class AuthModule { }

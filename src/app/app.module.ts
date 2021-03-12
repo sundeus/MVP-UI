@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 
 import { AuthModule } from './auth/auth.module'
 import {ContractModule}  from './contract/contract.module'
+import { LoginComponent } from './auth/login/login.component';
+import { RouterModule } from '@angular/router';
+
+
+
 // import {MenuItem} from 'primeng/api';
 @NgModule({
   declarations: [
@@ -16,7 +21,8 @@ import {ContractModule}  from './contract/contract.module'
     BrowserModule,
     AppRoutingModule,
     ContractModule,
-    AuthModule
+    AuthModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
