@@ -2,13 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>MVPUI</title>
+  <title>SundeusContractManagement</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+  .loader img{
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+.loader {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  margin: auto;
+  overflow: visible;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  background-color: aliceblue;
+  height: 100%;
+  width: 100%;
+  padding-left: 45%;
+    padding-top: 25%;
+
+  
+}</style>
 </head>
 <body>
- 
+  <div class="loader" id="loader">
+    <img  src="dist/SundeusCLMImg/loader.gif" >
+</div>
   <app-root></app-root>
 </body>
 </html>

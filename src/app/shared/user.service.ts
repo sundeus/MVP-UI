@@ -30,7 +30,7 @@ export class UserService {
 
   signInWithUsernamePassword(username:String,password:String,redirect_url:string):void{
    // console.log("logged in");
-    //document.getElementById('loader').style.display='block';
+    document.getElementById('loader').style.display='block';
   //  console.log("logged in");
     const httpOptions = {
       headers: new HttpHeaders({
@@ -49,7 +49,8 @@ export class UserService {
       console.log("logged in");
       console.log(response);
    //console.log(this.loggedinUser);
-   
+   document.getElementById('loader').style.display='none';
+   window.location.href = '/app'
      
        
           
