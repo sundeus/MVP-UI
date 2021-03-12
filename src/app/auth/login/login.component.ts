@@ -11,8 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   checked: boolean = false;
   formdata:FormGroup;
+
   
   constructor(private userService: UserService,private activatedRoute: ActivatedRoute ) {
+
     this.formdata = new FormGroup({
       username :new FormControl(""),
       password : new FormControl("")
