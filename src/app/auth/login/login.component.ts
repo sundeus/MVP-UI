@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   checked: boolean = false;
   formdata:FormGroup;
 
-  constructor(private userService: UserService,private activatedRoute: ActivatedRoute ,private fb:FormBuilder) {
+  constructor(private userService: UserService,private activatedRoute: ActivatedRoute ,private fb:) {
     this.formdata = new FormGroup({
       username :new FormControl(""),
       password : new FormControl("")
