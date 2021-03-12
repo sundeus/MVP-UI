@@ -51,18 +51,15 @@ export class UserService {
    //console.log(this.loggedinUser);
    document.getElementById('loader').style.display='none';
    window.location.href = '/app'
-     
-       
-          
-        
    //   console.log(res);
         });
-        
-   
-     // this.router.navigate([decodeURIComponent(redirect_url)])
      
-      
-      
+    }
+
+     ///////ForgotPassword///////
+  updatePassword(email:string){
+    
+    return this.http.get(this.contractBaseUrl+"/api/forgotpassword?email="+email,{responseType:'text'}).toPromise();
     
   }
 }
