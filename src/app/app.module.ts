@@ -9,20 +9,19 @@ import {ContractModule}  from './contract/contract.module'
 import { LoginComponent } from './auth/login/login.component';
 import { RouterModule } from '@angular/router';
 
-
-
 // import {MenuItem} from 'primeng/api';
+
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ContractModule,
     AuthModule,
-  
+
   ],
   providers: [],
   bootstrap: [AppComponent]

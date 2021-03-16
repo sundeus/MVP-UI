@@ -19,7 +19,7 @@ tenantId:number =null
   department:string = null
   dateOfJoining: string = null
   reportingManager: string = null
-  
+
   createdBy: string = null
   createDate: Date = null
   updatedBy: string = null

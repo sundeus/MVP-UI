@@ -51,10 +51,10 @@ import { RouterModule } from '@angular/router';
   declarations: [
     LoginComponent,
     ForgotPasswordComponent
-    
+
   ],
   imports: [
-    ReactiveFormsModule,
+  ReactiveFormsModule,
   CommonModule,
   RouterModule,
   FormsModule,

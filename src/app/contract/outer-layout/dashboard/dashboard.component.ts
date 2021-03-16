@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/shared/user.service';
 import {CardModule} from 'primeng/card';
 import {TableModule} from 'primeng/table';
 import {ChartModule} from 'primeng/chart';
+
+
 
 
 
@@ -21,8 +24,18 @@ export class DashboardComponent implements OnInit {
   data2: any;
   data3: any;
 
+  allInitiatedContractsCount=0;  //KPI1_initiated
+  allPendingSignaturecontractsCount=0;  //KPI2_PendingSignature
+  allPendingApprovalContractsCount=0;   //KPI_3_PendingApproval
+//MyTask var
+ActiveStatusIndication:number;
+AllContracts=[];
+subjectmessage="Approval request assigned for";
 
- constructor() {
+
+
+
+ constructor(public userService:UserService) {
    // Bar Chart
   this.data = {
     labels: ['Consulting', 'MSA', 'NDA', 'NDVA', 'SOW', 'VA', 'DA'],
@@ -31,9 +44,9 @@ export class DashboardComponent implements OnInit {
             label: 'My First dataset',
             // backgroundColor: '#42A5F5',
             backgroundColor: ['#42A5F5',
-                          "#9966FF",  
-                         "#4C4CFF",  
-                         "#00FFFF",  
+                          "#9966FF",
+                         "#4C4CFF",
+                         "#00FFFF",
                          "#f990a7",
                          "#F39C12",
                         "#FF6347"
@@ -74,9 +87,9 @@ export class DashboardComponent implements OnInit {
                 "#36A2EB",
                 "#8AE873",
                 "#9F9E95"
-               
+
             ]
-        }]    
+        }]
     };    // end-of-dought_chart1_col_1 in 3rd_Row
 
     // Circle/pie_chart_2
@@ -101,15 +114,15 @@ export class DashboardComponent implements OnInit {
                 "#ADE2A0",
                 "#147BAF"
             ]
-        }]    
+        }]
     };     //end of data2 piechart2 col_2 in 3rd_Row
-    
+
     // Circle/ Doughnut_chart_3
   this.data3 = {
     labels: ['A','B','C'],
     datasets: [
         {
-        
+
             data: [27.45, 35.26, 38.07,],
             backgroundColor: [
                 "#F933FF",
@@ -121,11 +134,11 @@ export class DashboardComponent implements OnInit {
                 "#A10B08",
                 "#0A1C76",
             ]
-        }]    
+        }]
     };    //end-of data3 doughnut_chart3 col_3 in 3rd_Row
    }   //  end-of-constructorMethod-bracket
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.contracttask =  [
       {"Subject": "CRN12345"},
       {"Subject": "CRN12345"},
@@ -136,13 +149,47 @@ export class DashboardComponent implements OnInit {
       {"Subject": "CRN12345"},
       {"Subject": "CRN12345"},
       {"Subject": "CRN12345"}
-    
+
   ];
 this.scrollableCols = [
       { field: 'Subject', header: 'Subject' },
       { field: 'image', header: 'Action' }
 ];
 
-  }    //end bracket of void()_method
+//KPI_1_initiated
+this.userService.getInitiatedContractsByUser().then(()=>{
+  this.allInitiatedContractsCount = this.userService.initiatedContracts.length;
+})
+
+//KPI_2_pending_signature
+this.userService.getContractsByPendingSignature().then(()=>{
+this.allPendingSignaturecontractsCount = this.userService.pendingSignatureContracts.length;
+})
+
+//KPI_3_pending_Approval
+this.userService.getContractsByPendingApproval().then(()=>{
+  this.allPendingApprovalContractsCount = this.userService.pendingApprovalContracts.length;
+})
+
+//KPI_4_Expiring
+
+}    //end bracket of ngOnInit_void()_method
+
+// MyTask table
+  getContarctsCommonly(x:number){
+    this.ActiveStatusIndication=x;
+    if(x==0){
+      this.AllContracts = this.userService.initiatedContracts;
+      this.subjectmessage ="initiated Contract is";
+    }
+    else if(x==1){
+      this.AllContracts = this.userService.pendingSignatureContracts;
+      this.subjectmessage ="pending signatures is";
+    }
+    else if(x==2){
+      this.AllContracts = this.userService.pendingApprovalContracts;
+      this.subjectmessage ="";
+    }
+ }
 
 }    // end bracket_of_Oninit
