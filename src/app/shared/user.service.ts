@@ -16,6 +16,7 @@ initiatedContracts=[];       //KPI_1_initiated_contracts
 pendingSignatureContracts=[];    //KPI_2_pending_Signatures
 pendingApprovalContracts=[];     //KPI_3_Pending_Approval
 expiringContracts=[];            //KPI_4_Expiring
+// assignContracts=[];
 
   contractBaseUrl:String;
   contracttypeBaseUrl:String;
@@ -48,7 +49,8 @@ expiringContracts=[];            //KPI_4_Expiring
       console.log(response);
    //console.log(this.loggedinUser);
    document.getElementById('loader').style.display='none';
-   window.location.href = '/app'
+   this.router.navigate(['app']);
+  //  window.location.href = '/app'
    //   console.log(res);
         });
 
@@ -87,11 +89,16 @@ resolve(true);
     })
   });
 }
-//KPI_4_Expiring
-getContractsByExpiring(){
-  return new Promise((resolve, reject)=>{
+// //table task
+// assignInitiatedcontract(){
+//   return new Promise((resolve, reject)=>{
+//     this.http.get(this.contracttypeBaseUrl+"/api/Validation/GetContractInitiatedByUser?").toPromise().then((res:Array<any>)=>{
+// this.assignContracts = res;
+// resolve(true);
+//     })
+//   });
+// }
 
-  })
-}
+
 
 }

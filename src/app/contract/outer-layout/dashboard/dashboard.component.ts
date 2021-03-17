@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
 //MyTask var
 ActiveStatusIndication:number;
 AllContracts=[];
-subjectmessage="Approval request assigned for";
+// subjectmessage="Approval request assigned for";
 
 
 
@@ -139,18 +139,18 @@ subjectmessage="Approval request assigned for";
    }   //  end-of-constructorMethod-bracket
 
   ngOnInit():void {
-    this.contracttask =  [
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"},
-      {"Subject": "CRN12345"}
+  //   this.contracttask =  [
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"},
+  //     {"Subject": "CRN12345"}
 
-  ];
+  // ];
 this.scrollableCols = [
       { field: 'Subject', header: 'Subject' },
       { field: 'image', header: 'Action' }
@@ -159,19 +159,25 @@ this.scrollableCols = [
 //KPI_1_initiated
 this.userService.getInitiatedContractsByUser().then(()=>{
   this.allInitiatedContractsCount = this.userService.initiatedContracts.length;
+  this.contracttask = this.userService.initiatedContracts;
 })
 
 //KPI_2_pending_signature
 this.userService.getContractsByPendingSignature().then(()=>{
 this.allPendingSignaturecontractsCount = this.userService.pendingSignatureContracts.length;
+// this.contracttask = this.userService.pendingSignatureContracts;
 })
 
 //KPI_3_pending_Approval
 this.userService.getContractsByPendingApproval().then(()=>{
   this.allPendingApprovalContractsCount = this.userService.pendingApprovalContracts.length;
+  // this.contracttask = this.userService.pendingApprovalContracts;
 })
 
-//KPI_4_Expiring
+//table task
+// this.userService.assignInitiatedcontract().then(()=>{
+//   this.contracttask = this.userService.assignContracts;
+// })
 
 }    //end bracket of ngOnInit_void()_method
 
@@ -180,15 +186,16 @@ this.userService.getContractsByPendingApproval().then(()=>{
     this.ActiveStatusIndication=x;
     if(x==0){
       this.AllContracts = this.userService.initiatedContracts;
-      this.subjectmessage ="initiated Contract is";
+      // this.subjectmessage ="initiated Contract is";
+      // this.contracttask=this.userService.initiatedContracts;
     }
     else if(x==1){
       this.AllContracts = this.userService.pendingSignatureContracts;
-      this.subjectmessage ="pending signatures is";
+      // this.subjectmessage ="pending signatures is";
     }
     else if(x==2){
       this.AllContracts = this.userService.pendingApprovalContracts;
-      this.subjectmessage ="";
+      // this.subjectmessage ="";
     }
  }
 

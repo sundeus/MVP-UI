@@ -79,14 +79,8 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-rowData let-columns="columns">
                     <tr>
-                        <!-- <td *ngFor="let col of columns">
-                            <span *ngIf = "col.field!='image'">
-                                {{rowData[col.field]}}
-                          </span>
-                             <img *ngIf = "col.field=='image'" [src]="rowData['image']" alt="">
-                        </td> -->
                         <td class="w-tableheader">
-                            Approval request assigned for <a href="">{{rowData['Subject']}}</a>
+                            Approval request assigned for <a href="">{{rowData['name']}}</a>
                         </td>
                          <td>
                            <img src="dist/SundeusCLMImg/List Page icons/Viewlatest.svg" style="height: 20px; vertical-align: middle;" alt="">
