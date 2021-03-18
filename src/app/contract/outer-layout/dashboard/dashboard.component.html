@@ -7,7 +7,7 @@
                 <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/intiatedkpi.svg" alt=""></div>
                 <div class="p-col-6 p-col-align-center overview-box-text">
                     <!-- <span class="title-captionkpi">Initiated</span> -->
-                    <a href="javascript:void(0)" (click)="getContarctsCommonly(0)" class="title-captionkpi">Initiated</a>
+                    <a href="javascript:void(0)" (click)="getInitiatedData()" class="title-captionkpi">Initiated</a>
                     <!-- <h3>Initiated</h3> -->
                 </div>
                 <!-- <div class="p-col-3 p-col-align-center overview-box-status">60</div> -->
@@ -21,7 +21,7 @@
                  <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/PendingSignature.svg" alt=""></div>
                  <div class="p-col-6 p-col-align-center overview-box-text">
                      <!-- <h3>Pending Signature</h3> -->
-                     <a href="javascript:void(0)" (click)="getContarctsCommonly(1)" class="title-captionkpi">Pending Signature</a>
+                     <a href="javascript:void(0)" (click)="getPendingSignData()" class="title-captionkpi">Pending Signature</a>
                  </div>
                  <!-- <div class="p-col-3 p-col-align-center overview-box-status2">4</div> -->
                  <div class="p-col-3 p-col-align-center overview-box-status2">{{allPendingSignaturecontractsCount}}</div>
@@ -33,7 +33,7 @@
             <div class="p-grid overview-box">
                  <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/PendingApproval.svg" alt=""></div>
                  <div class="p-col-6 p-col-align-center overview-box-text">
-                    <a href="javascript:void(0)" (click)="getContarctsCommonly(2)" class="title-captionkpi">Pending Approval</a>
+                    <a href="javascript:void(0)" (click)="getPendingApprovalData()" class="title-captionkpi">Pending Approval</a>
                 </div>
                  <!-- <div class="p-col-3 p-col-align-center overview-box-status3">14</div> -->
                  <div class="p-col-3 p-col-align-center overview-box-status3">{{allPendingApprovalContractsCount}}</div>
@@ -55,7 +55,7 @@
 <div class="p-col-12 p-lg-6">
 <div class="p-grid p-dir-col p-nogutter">
     <div class="p-col-12">
-        <div class="card myTasktable">
+        <div class="card myTasktable-ht" style="height: 380px;">
             <div class="p-grid border-btm">
                 <div class="p-col-6 p-md-8">
                     <span class="title-caption">My Task</span>
@@ -96,7 +96,7 @@
 <div class="p-col-12 p-lg-6">
     <div class="p-grid p-dir-col p-nogutter">
         <div class="p-col-12">
-            <div class="card">
+            <div class="card myTasktable-ht" style="height: 380px;">
                 <div class="p-grid">
                     <div class="p-col-6 p-md-8">
                         <span class="title-caption">Active Contracts by Type</span>

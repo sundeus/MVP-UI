@@ -27,10 +27,8 @@ export class DashboardComponent implements OnInit {
   allInitiatedContractsCount=0;  //KPI1_initiated
   allPendingSignaturecontractsCount=0;  //KPI2_PendingSignature
   allPendingApprovalContractsCount=0;   //KPI_3_PendingApproval
-//MyTask var
-ActiveStatusIndication:number;
-AllContracts=[];
-// subjectmessage="Approval request assigned for";
+
+AllContracts=[];  //for all contract data
 
 
 
@@ -136,7 +134,7 @@ AllContracts=[];
             ]
         }]
     };    //end-of data3 doughnut_chart3 col_3 in 3rd_Row
-   }   //  end-of-constructorMethod-bracket
+   }   //  end-of-constructor
 
   ngOnInit():void {
   //   this.contracttask =  [
@@ -174,29 +172,27 @@ this.userService.getContractsByPendingApproval().then(()=>{
   // this.contracttask = this.userService.pendingApprovalContracts;
 })
 
-//table task
-// this.userService.assignInitiatedcontract().then(()=>{
-//   this.contracttask = this.userService.assignContracts;
-// })
-
+//KPI_4_Expiring
+//Nothing yet
 }    //end bracket of ngOnInit_void()_method
 
-// MyTask table
-  getContarctsCommonly(x:number){
-    this.ActiveStatusIndication=x;
-    if(x==0){
-      this.AllContracts = this.userService.initiatedContracts;
-      // this.subjectmessage ="initiated Contract is";
-      // this.contracttask=this.userService.initiatedContracts;
-    }
-    else if(x==1){
-      this.AllContracts = this.userService.pendingSignatureContracts;
-      // this.subjectmessage ="pending signatures is";
-    }
-    else if(x==2){
-      this.AllContracts = this.userService.pendingApprovalContracts;
-      // this.subjectmessage ="";
-    }
- }
+//table task
+//KPI_1
+getInitiatedData(){
+  alert('initiated data');
+  this.contracttask=this.userService.initiatedContracts;
+}
+//KPI_2
+getPendingSignData(){
+  // alert('Pending Signature Data');
+  this.contracttask=this.userService.pendingSignatureContracts;
+}
+//KPI_3
+getPendingApprovalData(){
+  // alert('Pending Approval Data');
+  this.contracttask=this.userService.pendingApprovalContracts;
+}
+//KPI_4
+//Nothing yet
 
-}    // end bracket_of_Oninit
+}    // end bracket_of_export_Oninit

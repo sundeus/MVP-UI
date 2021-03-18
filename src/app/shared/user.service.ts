@@ -90,15 +90,5 @@ resolve(true);
   });
 }
 // //table task
-// assignInitiatedcontract(){
-//   return new Promise((resolve, reject)=>{
-//     this.http.get(this.contracttypeBaseUrl+"/api/Validation/GetContractInitiatedByUser?").toPromise().then((res:Array<any>)=>{
-// this.assignContracts = res;
-// resolve(true);
-//     })
-//   });
-// }
-
-
 
 }

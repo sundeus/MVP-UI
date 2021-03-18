@@ -194,11 +194,16 @@ height: 55px !important;
     background-color: #FFFFFF;
     padding: 10px;
 }                       /* My Task Table card*/
+
+/* .myTasktable-ht{} */
 .title-captionkpi {
     color: #333333 !important;
     font-size: 18px;
     font-family: Avenir Heavy;
     font-weight: bold;
+}
+.title-captionkpi:hover{
+color: #012164 !important;
 }
 span.customicon {
     float: right;
