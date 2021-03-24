@@ -18,9 +18,9 @@
 
             <form [formGroup]="formdata">
             <div class="p-grid">
-               
+
               <div class="p-col-12">
-                 
+
                 <div class="ui-inputgroup">
                     <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
                     <input type="text" class="form-control"  name="username" pInputText placeholder="Username"  formControlName="username" required class="w-19">
@@ -37,7 +37,7 @@
                   <a href="forgotpwd" class="stretched-link float-r"><ins>Forgot Password?</ins></a>
               </div>
             </div>
-        
+
             <p-footer>
                 <button pButton type="submit" (click)="signInWithUsernamePassword()" label="SIGN IN" class="ui-button-secondary w-20 spacingbottom-1"></button>
             </p-footer>

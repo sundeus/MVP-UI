@@ -60,7 +60,7 @@ body .ui-widget-content p {
 body .ui-corner-all {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
-  border-radius: 3px; 
+  border-radius: 3px;
 }
 body .ui-corner-top {
   -moz-border-radius-topleft: 3px;
@@ -482,7 +482,7 @@ body .ui-chips > ul.ui-inputtext .ui-chips-input-token {
   padding: 0.2145em 0;
 }
 body .ui-chips > ul.ui-inputtext .ui-chips-input-token input {
-  font-family: "Open Sans", "Helvetica Neue", sans-serif; 
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   padding: 0;
   margin: 0;
@@ -520,7 +520,7 @@ body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
   outline: 0 none;
   outline-offset: 0;
   -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
-  -moz-box-shadow: 0 0 0 0.2em #8dcdff;           
+  -moz-box-shadow: 0 0 0 0.2em #8dcdff;
   box-shadow: 0 0 0 0.2em transparent;           /* #8dcdff change by me*/
   /* border-color: #007ad9; */                    /*Custom css change by me*/
 }
@@ -1366,7 +1366,7 @@ body .ui-button:enabled:focus {
 body .ui-button:enabled:active {
   background-color: #005b9f;
   color: #ffffff;
-  border-color: #005b9f;     
+  border-color: #005b9f;
 }
 body .ui-button.ui-button-text-only .ui-button-text {
   padding: 0.429em 1em;
@@ -1413,7 +1413,7 @@ body .ui-splitbutton.ui-buttonset .ui-menu {
 body .ui-button.ui-state-default.ui-button-secondary, body .ui-buttonset.ui-button-secondary > .ui-button.ui-state-default {
   /* color: #333333; */  /* background-color: #f4f4f4; */        /* Custom css change color by me*/
   color: #FF8C00;
-  background-color: #ffffff;         
+  background-color: #ffffff;
   border: 1px solid #FF8C00;
 }
 body .ui-button.ui-state-default.ui-button-secondary:enabled:hover, body .ui-buttonset.ui-button-secondary > .ui-button.ui-state-default:enabled:hover {
@@ -1871,7 +1871,7 @@ body .ui-paginator .ui-dropdown {
 }
 body .ui-paginator .ui-dropdown .ui-dropdown-trigger, body .ui-paginator .ui-dropdown .ui-dropdown-label {
   color: #333333;
-} 
+}
 body .ui-paginator .ui-dropdown:hover .ui-dropdown-trigger, body .ui-paginator .ui-dropdown:hover .ui-dropdown-label {
   color: #333333;
 }
@@ -2033,12 +2033,12 @@ body .ui-table .ui-table-thead > tr > th {
   padding: 0.571em 0.857em;
   border: 1px solid #c8c8c8;
   font-weight: 700;
-  text-align: left;        /* Custom add by me */     
-  /* color: #333333; */     color: #013164;               /* Custom change by me */     
+  text-align: left;        /* Custom add by me */
+  /* color: #333333; */     color: #013164;               /* Custom change by me */
   background-color: #EFF3F7;    /* background-color: #f4f4f4; */
 }
 body .ui-table .ui-table-tbody > tr > td {
-  padding: 0.571em 0.857em; /*padding: 0em 0.857em;*/   /* Custom change by me */   
+  padding: 0.571em 0.857em; /*padding: 0em 0.857em;*/   /* Custom change by me */
 }
 body .ui-table .ui-table-tfoot > tr > td {
   padding: 0.571em 0.857em;
@@ -2507,7 +2507,7 @@ body .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active:
   color: #ffffff;
 }
 body .ui-accordion .ui-accordion-content {
-  padding: 0.571em 1em;  
+  padding: 0.571em 1em;
   border: 1px solid #c8c8c8;  /* border: 1px solid #013164; Custom css change by me */
   background-color: #ffffff;
   color: #333333;
@@ -3287,7 +3287,7 @@ body .ui-menubar {
   padding: 0;
   background-color: #ffffff;
   border: 1px solid #c8c8c8; /* border: 0px solid #FFF; */    /*Custom css change By me*/
-  
+
 }
 body .ui-menubar .ui-menuitem-link {
   padding: 0.714em 0.857em;
@@ -3604,7 +3604,7 @@ body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-number {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   display: inline-block;
-  /* color: #333333; */   color: #ffffff;            /*Steps-number Custom css change by me*/   
+  /* color: #333333; */   color: #ffffff;            /*Steps-number Custom css change by me*/
   /* background-color: #ffffff; */ background-color: darkslategray;
   border: 1px solid #c8c8c8;
   position: relative;
@@ -3613,7 +3613,7 @@ body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-number {
   width: 28px;
   height: 28px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 26px;    /*Steps-number Custom css change by me*/
   text-align: center;
 }
 body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-title {

@@ -25,7 +25,7 @@ expiringContracts=[];            //KPI_4_Expiring
   constructor( private router: Router,private activatedRoute: ActivatedRoute,private http:HttpClient) {
     this.contractBaseUrl = environment.contractApiURL;
     this.contracttypeBaseUrl = environment.contractTypeApiURL;
-  }
+  }  //end of Constructor_method
 //LOGIN code
  signInWithUsernamePassword(username:String,password:String,redirect_url:string):void{
    // console.log("logged in");

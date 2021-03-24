@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SortEvent } from 'primeng/api';
+import { ContractService } from 'src/app/contract/contract.service';
 
 @Component({
   selector: 'app-contract-list',
@@ -13,31 +14,31 @@ export class ContractListComponent implements OnInit {
   cols: any[];
   first = 0;
   rows = 10;
-  constructor() { }    //end bracket of Constructor() Method
+  constructor(public contractService:ContractService) { }    //end bracket of Constructor() Method
 
-  ngOnInit(): void {
-    this.customtabledata = [
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Master Services Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "2.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Partnership Agreement", "Created Type": "", "Account Name": "111232", "Status": "Inactive", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "3.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Lease Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "4.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Sponsorship Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "5.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Vendor Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "6.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Inactive", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
-      {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"}
-    ];
+  ngOnInit(){
+    // this.customtabledata = [
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Master Services Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "2.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Partnership Agreement", "Created Type": "", "Account Name": "111232", "Status": "Inactive", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "3.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Lease Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "4.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Sponsorship Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "5.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Vendor Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "6.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Inactive", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"},
+    //   {"Contract Name": "Non Disclosure Agreement", "Created Type": "", "Account Name": "111232", "Status": "Active", "Effective Date": "30/08/20", "Expiry Date": "30/09/21", "Version": "1.0", "Created By": "Jhon Doe", "Created On": "02/09/20"}
+    // ];
     this.cols = [
       { field: 'Contract Name', header: 'Contract Name' },
       { field: 'Created Type', header: 'Contract Type'},
@@ -49,6 +50,11 @@ export class ContractListComponent implements OnInit {
       { field: 'Created On', header: 'Created On'},
       { field: 'image', header: 'Action'}
   ];
+
+  //Contract_List
+  this.contractService.getAllContractsList().then(()=>{
+    this.customtabledata = this.contractService.contractList;
+  })
   }   //end bracket of ngOnInit():void Method
   customSort(event: SortEvent) {
     event.data.sort((data1, data2) => {
@@ -69,7 +75,7 @@ export class ContractListComponent implements OnInit {
 
         return (event.order * result);
     });
-} // end bracket of customSort method() 
+} // end bracket of customSort method()
 
 // Start pagination section code
  next() {

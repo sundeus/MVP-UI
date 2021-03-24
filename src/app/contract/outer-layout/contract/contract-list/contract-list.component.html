@@ -9,8 +9,8 @@
                    </div>
                    <div class="p-col-12 p-md-3">
                        <div class="ui-inputgroup">
-                           <input type="text" pInputText placeholder="Search by">   
-                           <button pButton type="button" icon="pi pi-search" class="ui-button-warn Sundeus-golbal-serch"></button>      
+                           <input type="text" pInputText placeholder="Search by">
+                           <button pButton type="button" icon="pi pi-search" class="ui-button-warn Sundeus-golbal-serch"></button>
                        </div>
                    </div>
            </div>
@@ -84,15 +84,15 @@
                      </td> -->
                    <td class="">
                     <p-checkbox name="group1" [(ngModel)]="rowData['checked']" inputId="yn"></p-checkbox>&nbsp;
-                    <a href="#">{{rowData['Contract Name']}}</a>
+                    <a href="#">{{rowData['contractName']}}</a>
                    </td>
-                   <td>{{rowData['Contract Type']}}</td>
+                   <td>{{rowData['contractType']}}</td>
                    <td>{{rowData['Account Name']}}</td>
-                   <td>{{rowData['Status']}}</td>
+                   <td>{{rowData['status']}}</td>
                    <td>{{rowData['Effective Date']}}</td>
                    <td>{{rowData['Expiry Date']}}</td>
-                   <td>{{rowData['Created By']}}</td>
-                   <td>{{rowData['Created On']}}</td>
+                   <td>{{rowData['createdBy']}}</td>
+                   <td>{{rowData['createdDate']}}</td>
                    <!-- <td><p-toggleButton [(ngModel)]="rowData['checked']" onLabel="Active" offLabel="Inactive" [style]="{'width':'75px','border-radius':'25px'}" styleClass="togglebutton">{{rowData['Status']}}</p-toggleButton></td> -->
                 <td class="listactionicon">
                         <img src="dist/SundeusCLMImg/List Page icons/Editlatest.svg" alt="" style="padding-right: 10px;">
@@ -104,11 +104,11 @@
            </p-table>
        </div>
     </div>
-                   
+
    </p-card>
           </div>
        </div>       <!--top_grid end-->
-       
+
     </div>       <!--layout-content end-->
    </div>       <!--layout-main end-->
 
