@@ -7,11 +7,11 @@
                 <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/intiatedkpi.svg" alt=""></div>
                 <div class="p-col-6 p-col-align-center overview-box-text">
                     <!-- <span class="title-captionkpi">Initiated</span> -->
-                    <a href="javascript:void(0)" (click)="getInitiatedData()" class="title-captionkpi">Initiated</a>
+                    <a href="javascript:void(0)" (click)="getContractsCommanly(0)" class="title-captionkpi">Initiated</a>
                     <!-- <h3>Initiated</h3> -->
                 </div>
                 <!-- <div class="p-col-3 p-col-align-center overview-box-status">60</div> -->
-                <div class="p-col-3 p-col-align-center overview-box-status">{{allInitiatedContractsCount}}</div>
+                <div class="p-col-3 p-col-align-center overview-box-status">{{userService.initiatedContracts.length}}</div>
             </div>
         </p-card>
     </div>
@@ -21,10 +21,10 @@
                  <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/PendingSignature.svg" alt=""></div>
                  <div class="p-col-6 p-col-align-center overview-box-text">
                      <!-- <h3>Pending Signature</h3> -->
-                     <a href="javascript:void(0)" (click)="getPendingSignData()" class="title-captionkpi">Pending Signature</a>
+                     <a href="javascript:void(0)" (click)="getContractsCommanly(1)" class="title-captionkpi">Pending Signature</a>
                  </div>
                  <!-- <div class="p-col-3 p-col-align-center overview-box-status2">4</div> -->
-                 <div class="p-col-3 p-col-align-center overview-box-status2">{{allPendingSignaturecontractsCount}}</div>
+                 <div class="p-col-3 p-col-align-center overview-box-status2">{{userService.pendingSignatureContracts.length}}</div>
                 </div>
          </p-card>
     </div>
@@ -33,21 +33,21 @@
             <div class="p-grid overview-box">
                  <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/PendingApproval.svg" alt=""></div>
                  <div class="p-col-6 p-col-align-center overview-box-text">
-                    <a href="javascript:void(0)" (click)="getPendingApprovalData()" class="title-captionkpi">Pending Approval</a>
+                    <a href="javascript:void(0)" (click)="getContractsCommanly(2)" class="title-captionkpi">Pending Approval</a>
                 </div>
                  <!-- <div class="p-col-3 p-col-align-center overview-box-status3">14</div> -->
-                 <div class="p-col-3 p-col-align-center overview-box-status3">{{allPendingApprovalContractsCount}}</div>
+                 <div class="p-col-3 p-col-align-center overview-box-status3">{{userService.pendingApprovalContracts.length}}</div>
              </div>
          </p-card>
     </div>
     <div class="p-col-12 p-xl-3 p-md-6">
         <p-card [style]="{height: '84px'}">
             <div class="p-grid overview-box">
-                 <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/expiring.svg" alt=""></div>
+                 <div class="p-col-3 p-col-align-center overview-box-icon"><img src="card" src="./../../../dist/SundeusCLMImg/Dashboard_Kpi_img/Pending for review.svg" alt=""></div>
                  <div class="p-col-6 p-col-align-center overview-box-text">
-                     <span class="title-captionkpi">Expiring</span>
+                     <a href="javascript:void(0)" (click)="getContractsCommanly(3)" class="title-captionkpi">Pending Review</a>
                  </div>
-                 <div class="p-col-3 p-col-align-center overview-box-status4">0</div>
+                 <div class="p-col-3 p-col-align-center overview-box-status4">{{userService.pendingContractsForReview.length}}</div>
              </div>
          </p-card>
     </div>
@@ -67,7 +67,7 @@
             </div>
          <!-- <div class="border-line"></div> -->
             <!-- primng table -->
-            <p-table [columns]="scrollableCols" [value]="contracttask" styleClass="ui-table-mytask" [scrollable]="true" scrollHeight="300px">
+            <p-table [columns]="scrollableCols" [value]="AllContracts" styleClass="ui-table-mytask" [scrollable]="true" scrollHeight="300px">
                 <ng-template pTemplate="header" let-columns>
                     <tr>
                         <!-- <th *ngFor="let col of columns">
@@ -80,7 +80,7 @@
                 <ng-template pTemplate="body" let-rowData let-columns="columns">
                     <tr>
                         <td class="w-tableheader">
-                            Approval request assigned for <a href="">{{rowData['name']}}</a>
+                            {{columnmessege}} <a href="">{{rowData['name']}}</a>
                         </td>
                          <td>
                            <img src="dist/SundeusCLMImg/List Page icons/Viewlatest.svg" style="height: 20px; vertical-align: middle;" alt="">
@@ -97,19 +97,20 @@
     <div class="p-grid p-dir-col p-nogutter">
         <div class="p-col-12">
             <div class="card myTasktable-ht" style="height: 380px;">
-                <div class="p-grid">
+               <div class="p-grid">
                     <div class="p-col-6 p-md-8">
                         <span class="title-caption">Active Contracts by Type</span>
-                        <!-- <h3>Active Contracts by Type</h3> -->
+                       
                     </div>
                     <div class="p-col-6 p-md-4">
                         <span class=" customicon"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
                         <span class="customicon pr-doticon"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
                     </div>
-                </div>
+                </div>--> 
                 <!-- Bar Chart COl start -->
-                <p-chart type="bar" [data]="data" [options]="options" id="mybarchart"></p-chart>
+               <!-- <p-chart type="bar" [data]="data" [options]="options" id="mybarchart"></p-chart>-->
                 <!--Bar Char Col end -->
+
             </div>
         </div>
     </div>
