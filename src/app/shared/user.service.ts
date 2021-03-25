@@ -16,6 +16,7 @@ initiatedContracts=[];       //KPI_1_initiated_contracts
 pendingSignatureContracts=[];    //KPI_2_pending_Signatures
 pendingApprovalContracts=[];     //KPI_3_Pending_Approval
 expiringContracts=[];            //KPI_4_Expiring
+pendingContractsForReview=[];    //KPI_5_PendingReview
 // assignContracts=[];
 
   contractBaseUrl:String;
@@ -47,9 +48,15 @@ expiringContracts=[];            //KPI_4_Expiring
       this.loggedinUser = response as Users;
       console.log("logged in");
       console.log(response);
+      console.log(localStorage.getItem('currentUser'))
+     // localStorage.removeItem('currentUser');
+      //localStorage.setItem('currentUser',JSON.stringify(this.loggedinUser));
+      localStorage.setItem('currentUserId',JSON.stringify(this.loggedinUser.id));
+      //this.loggedinUser = JSON.parse(localStorage.getItem('currentUser'));
+      
    //console.log(this.loggedinUser);
    document.getElementById('loader').style.display='none';
-   this.router.navigate(['app']);
+   this.router.navigate(['/app']);
   //  window.location.href = '/app'
    //   console.log(res);
         });
@@ -88,6 +95,19 @@ this.pendingApprovalContracts = res;
 resolve(true);
     })
   });
+}
+//KPI4_PendingReview
+getAllContractsForReviewByLoggedInUser(){
+  return new Promise((resolve, reject)=>{
+    this.http.get(this.contracttypeBaseUrl+"/api/Validation/GetContractReviwersByUser?UserId="+this.loggedinUser.id+"&tenantId="+this.loggedinUser.tenantId).toPromise().then((res:Array<any>)=>{
+this.pendingContractsForReview = res;
+resolve(true);
+    })
+
+  });
+}
+getUserDetailsById(currentUserId:string){
+  return this.http.get(this.contractBaseUrl+"/api/tenants/"+this.loggedinUser.tenantId+"/users/"+currentUserId).toPromise();
 }
 // //table task
 
