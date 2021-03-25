@@ -50,6 +50,7 @@ import { TemplatesListComponent } from './contract/outer-layout/setup/templates/
 import { OrganisationDetailsComponent } from './contract/outer-layout/setup/organisation-details/organisation-details.component';
 import { OrganisationdetailsFormComponent } from './contract/outer-layout/setup/organisation-details/organisationdetails-form/organisationdetails-form.component';
 import { from } from 'rxjs';
+import { LoginGuard } from './contract/login.guard';
 
 
 const routes: Routes = [
@@ -60,7 +61,7 @@ const routes: Routes = [
     path: 'app', component: OuterLayoutComponent,
     children:[
       { path : '', redirectTo: '/app/dashboard', pathMatch: 'full'},
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent ,canActivate: [LoginGuard]},
       { path: 'contract', component: ContractComponent,
       children: [
         { path: 'list', component: ContractListComponent },
