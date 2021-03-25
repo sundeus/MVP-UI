@@ -27,13 +27,32 @@ export class DashboardComponent implements OnInit {
   allInitiatedContractsCount=0;  //KPI1_initiated
   allPendingSignaturecontractsCount=0;  //KPI2_PendingSignature
   allPendingApprovalContractsCount=0;   //KPI_3_PendingApproval
+  totalPendingReviewCount=0; //KPI_4_PendingReview
 
 AllContracts=[];  //for all contract data
 
+ActiveTileIndication:number=2;
+
+columnmessege="Approval request assigned for";
 
 
 
  constructor(public userService:UserService) {
+   
+document.getElementById('loader').style.display='block';
+const p1 = this.userService.getInitiatedContractsByUser();
+const p2 =this.userService.getContractsByPendingApproval();
+const p3 =this.userService.getAllContractsForReviewByLoggedInUser();
+const p4 =this.userService.getContractsByPendingSignature();
+
+Promise.all([p1, p2, p3,p4])
+.then(results=> {
+  console.log(results);
+   //this.getContractsCommanly(this.ActiveTileIndication);
+  document.getElementById('loader').style.display='none';
+});
+
+  
    // Bar Chart
   this.data = {
     labels: ['Consulting', 'MSA', 'NDA', 'NDVA', 'SOW', 'VA', 'DA'],
@@ -154,32 +173,62 @@ this.scrollableCols = [
       { field: 'image', header: 'Action' }
 ];
 
+/*
 //KPI_1_initiated
+let flag1=false ,flag2=false,flag3=false,flag4=false;
 this.userService.getInitiatedContractsByUser().then(()=>{
-  this.allInitiatedContractsCount = this.userService.initiatedContracts.length;
+ // this.allInitiatedContractsCount = this.userService.initiatedContracts.length;
   this.contracttask = this.userService.initiatedContracts;
+
+  if(flag2 &&flag3 &&flag4){
+    document.getElementById('loader').style.display='none';
+  }
+  flag1 = true;
 })
 
 //KPI_2_pending_signature
 this.userService.getContractsByPendingSignature().then(()=>{
-this.allPendingSignaturecontractsCount = this.userService.pendingSignatureContracts.length;
-// this.contracttask = this.userService.pendingSignatureContracts;
+//this.allPendingSignaturecontractsCount = this.userService.pendingSignatureContracts.length;
+this.contracttask = this.userService.pendingSignatureContracts;
+if(flag1 &&flag3 &&flag4){
+  document.getElementById('loader').style.display='none';
+}
+
+flag2 = true;
 })
 
 //KPI_3_pending_Approval
 this.userService.getContractsByPendingApproval().then(()=>{
-  this.allPendingApprovalContractsCount = this.userService.pendingApprovalContracts.length;
-  // this.contracttask = this.userService.pendingApprovalContracts;
+ // this.allPendingApprovalContractsCount = this.userService.pendingApprovalContracts.length;
+   this.contracttask = this.userService.pendingApprovalContracts;
+   if(flag1 && flag2 &&flag4){
+    document.getElementById('loader').style.display='none';
+  }
+  flag3 = true;
 })
-
+this.userService.getAllContractsForReviewByLoggedInUser().then(()=>{
+ // this.totalPendingReviewCount=this.userService.pendingContractsForReview.length;
+  if(flag1 && flag2 &&flag3){
+    document.getElementById('loader').style.display='none';
+  }
+  flag4 = true;
+})*/
 //KPI_4_Expiring
 //Nothing yet
+
+///////trying array of promises//////
+
+
+///////end of trying array of promises//////
 }    //end bracket of ngOnInit_void()_method
+
+
+
 
 //table task
 //KPI_1
-getInitiatedData(){
-  alert('initiated data');
+/*getInitiatedData(){
+  //alert('initiated data');
   this.contracttask=this.userService.initiatedContracts;
 }
 //KPI_2
@@ -193,6 +242,31 @@ getPendingApprovalData(){
   this.contracttask=this.userService.pendingApprovalContracts;
 }
 //KPI_4
-//Nothing yet
+getPendingReviewData(){
+  this.contracttask=this.userService.pendingContractsForReview;
+}
+*/
+/////////////////////////////managing dashboard tiles.........
+getContractsCommanly(x:number){
+  this.ActiveTileIndication=x;
+      if(x==0){
+         this.AllContracts=this.userService.initiatedContracts;
+         this.columnmessege="Initiated Contract is";
+      }
+       else if(x==1){
+         this.AllContracts=this.userService.pendingSignatureContracts;
+         this.columnmessege="Pending Signature Contract is ";
+      }
+       else if(x==2){
+         this.AllContracts=this.userService.pendingApprovalContracts;
+         this.columnmessege="Approval request assigned for";
+      }
+      else if(x==3){
+        this.AllContracts=this.userService.pendingContractsForReview;
+         this.columnmessege="Pending Review Contract is ";
+      }
+  }
 
+  ///Promises Object Array///////
+  
 }    // end bracket_of_export_Oninit
