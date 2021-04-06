@@ -62,7 +62,7 @@ const routes: Routes = [
     children:[
       { path : '', redirectTo: '/app/dashboard', pathMatch: 'full'},
       { path: 'dashboard', component: DashboardComponent ,canActivate: [LoginGuard]},
-      { path: 'contract', component: ContractComponent,
+      { path: 'contract', component: ContractComponent,canActivate: [LoginGuard],
       children: [
         { path: 'list', component: ContractListComponent },
         { path: 'form', component: ContractFormComponent,

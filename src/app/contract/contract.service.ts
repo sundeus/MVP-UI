@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { UserService } from './../shared/user.service';
 import { Users } from './../shared/users.model';
+import { Clauses } from './../shared/clauses.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,7 @@ export class ContractService {
   contracttypeBaseUrl:String;
 
   contractList=[];   //Contract_List
+  Clause:Clauses;
 
   constructor(public userService:UserService, private http:HttpClient, private router:Router, private activatedRoute:ActivatedRoute) {
     this.contractBaseUrl = environment.contractApiURL;

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
+import { ContractService } from 'src/app/contract/contract.service';
+import { Clauses } from 'src/app/shared/clauses.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,7 +19,7 @@ export class AddclauseFormComponent implements OnInit {
   taggedtemplates: any[];            //table
   cols: any[];
 
-  constructor() { 
+  constructor(public contractService: ContractService,private router: Router,private route: ActivatedRoute) {
     this.contracttypes = [
       {label: 'NDA', value: 'NDA'},
       {label: 'MSA', value: 'MSA'},
@@ -45,4 +48,10 @@ export class AddclauseFormComponent implements OnInit {
 ];
   }  //end of  ngOnInit()_void method
 
-}    //end of export class 
+  saveClause(){
+    console.log(this.contractService.Clause);
+  }
+
+  // userModel = new this.userModel('clause1', 'this is first clause', 'just i have to check it')
+
+}    //end of export class

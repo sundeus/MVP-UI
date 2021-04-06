@@ -16,6 +16,8 @@
                     <p>**All Fields are mandatory</p>
                 </div>
                <!--1st Row-->
+               <!-- {{clauseForm | json}} -->
+               <form action="" #clauseForm="ngForm">
                 <div class="ui-fluid p-formgrid p-grid">
                     <div class="p-field p-col-3">
                         <label for="contracttype">Contract Type</label>
@@ -24,11 +26,11 @@
                     </div>
                     <div class="p-field p-col-3">
                         <label for="addclause">Clause Name</label>
-                        <input id="addclause" name="addclause" type="text" pInputText placeholder="Add Clause Name"> 
+                        <input id="addclause" name="addclause" type="text" [(ngModel)]="contractService.Clause.name" pInputText placeholder="Add Clause Name">
                     </div>
                     <div class="p-field p-col-6">
                         <label for="clauseinfo">Clause Description</label>
-                        <input id="clauseinfo" name="clauseinfo" type="text" pInputText placeholder="Add Description"> 
+                        <input id="clauseinfo" name="clauseinfo" type="text" [(ngModel)]="contractService.Clause.description" pInputText placeholder="Add Description">
                     </div>
                     <div class="p-field p-col-3">
                         <label for="languages">Language</label>
@@ -54,7 +56,7 @@
                     </div>
                     <div class="p-field p-col-12">
                         <label for="clausetext">Clause Text</label>
-                        <textarea rows="14" cols="30" pInputTextarea placeholder="Type here..."></textarea>
+                        <textarea rows="14" cols="30" name="textmessages" [(ngModel)]="contractService.Clause.text" pInputTextarea placeholder="Type here..."></textarea>
                     </div>
                     <div class="p-field p-col-6">
                         <label for="taggedtemplates">Tagged Templates</label>
@@ -78,7 +80,7 @@
                                     <td> {{rowData['Subject']}}</td>
                                 </tr>
                             </ng-template>
-                        </p-table>   <!--Table of tagged templates_end-->                   
+                        </p-table>   <!--Table of tagged templates_end-->
                     </div>
                  </div>
                    <!--1st Row end-->
@@ -89,16 +91,16 @@
                     <div class="p-col-12 p-md-6 p-lg-3"></div>
                     <div class="p-col-12 p-md-6 p-lg-3">
                           <div class="Sundeus-button-ui">
-                            <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns"></button>
-                            <button pButton type="button" label="Save" class="ui-button-primary p-button"></button>
+                            <button pButton type="button" label="Cancel" class="ui-button-secondary bottomactionbtns" routerLink = "/app/setup/clauses/list"></button>
+                            <button pButton type="button" label="Save" class="ui-button-primary p-button" (click)="saveClause()"></button>
                         </div>
                     </div>
                 </div>
+              </form>
                 <!--2nd Row end-->
                </p-card>
               </div>
            </div>       <!--top grid end-->
-           
+
         </div>       <!--layout-content end-->
        </div>       <!--layout-main end-->
-    

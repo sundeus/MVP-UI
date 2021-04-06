@@ -30,15 +30,13 @@ export class DashboardComponent implements OnInit {
   totalPendingReviewCount=0; //KPI_4_PendingReview
 
 AllContracts=[];  //for all contract data
-
 ActiveTileIndication:number=2;
-
-columnmessege="Approval request assigned for";
+columnmessege="Approval request assigned for"; //table var
 
 
 
  constructor(public userService:UserService) {
-   
+
 document.getElementById('loader').style.display='block';
 const p1 = this.userService.getInitiatedContractsByUser();
 const p2 =this.userService.getContractsByPendingApproval();
@@ -52,7 +50,7 @@ Promise.all([p1, p2, p3,p4])
   document.getElementById('loader').style.display='none';
 });
 
-  
+
    // Bar Chart
   this.data = {
     labels: ['Consulting', 'MSA', 'NDA', 'NDVA', 'SOW', 'VA', 'DA'],
@@ -156,18 +154,7 @@ Promise.all([p1, p2, p3,p4])
    }   //  end-of-constructor
 
   ngOnInit():void {
-  //   this.contracttask =  [
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"},
-  //     {"Subject": "CRN12345"}
 
-  // ];
 this.scrollableCols = [
       { field: 'Subject', header: 'Subject' },
       { field: 'image', header: 'Action' }
@@ -252,6 +239,7 @@ getContractsCommanly(x:number){
       if(x==0){
          this.AllContracts=this.userService.initiatedContracts;
          this.columnmessege="Initiated Contract is";
+        //  this.contracttask=this.AllContracts;
       }
        else if(x==1){
          this.AllContracts=this.userService.pendingSignatureContracts;
@@ -268,5 +256,5 @@ getContractsCommanly(x:number){
   }
 
   ///Promises Object Array///////
-  
+
 }    // end bracket_of_export_Oninit

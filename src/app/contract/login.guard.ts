@@ -10,16 +10,16 @@ export class LoginGuard implements CanActivate {
 
   constructor(private _router: Router,private userService: UserService,private route:ActivatedRoute){
 
-    
+
   }
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log("I am guard");
    var userId = localStorage.getItem("currentUserId");
     console.log(userId);
-    
+
     if (localStorage.getItem('currentUserId')==="null" || localStorage.getItem('currentUserId')===null ){
       console.log("false")
- 
+
       this._router.navigate(['/login/']);
       return false;
     }
@@ -29,15 +29,14 @@ export class LoginGuard implements CanActivate {
      // this._router.navigate(['/app/dashboard']);
      this.userService.getUserDetailsById(userId).then((res:any)=>{
        this.userService.loggedinUser=res;
-       this._router.navigate(['/app/dashboard']);
+      //  this._router.navigate(['/app/dashboard']);   //me Q to ask
      })
      return true;
      }
-     
-     
+
+
 
     }
-   
-    
+
+
   }
-  
