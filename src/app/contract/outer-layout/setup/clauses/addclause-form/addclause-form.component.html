@@ -3,7 +3,7 @@
         <div class="layout-content">
            <div class="p-grid">
                <div class="p-col-12">
-                    <!-- Top hedaer Title div_start  -->
+                    <!-- Top header Title div_start  -->
                    <div class="p-grid ui-fluid">
                        <div class="p-col-12 p-md-9">
                            <span class="title-caption">Add Clause</span>
@@ -16,7 +16,6 @@
                     <p>**All Fields are mandatory</p>
                 </div>
                <!--1st Row-->
-               <!-- {{clauseForm | json}} -->
                <form action="" #clauseForm="ngForm">
                 <div class="ui-fluid p-formgrid p-grid">
                     <div class="p-field p-col-3">
@@ -26,15 +25,15 @@
                     </div>
                     <div class="p-field p-col-3">
                         <label for="addclause">Clause Name</label>
-                        <input id="addclause" name="addclause" type="text" [(ngModel)]="contractService.Clause.name" pInputText placeholder="Add Clause Name">
+                        <input name="addclause" type="text" [(ngModel)]="Clause.name" pInputText placeholder="Add Clause Name">
                     </div>
                     <div class="p-field p-col-6">
                         <label for="clauseinfo">Clause Description</label>
-                        <input id="clauseinfo" name="clauseinfo" type="text" [(ngModel)]="contractService.Clause.description" pInputText placeholder="Add Description">
+                        <input name="clauseinfo" type="text" [(ngModel)]="Clause.description" pInputText placeholder="Add Description">
                     </div>
                     <div class="p-field p-col-3">
                         <label for="languages">Language</label>
-                        <p-dropdown [options]="languages" [(ngModel)]="selectedLanguage1" editable="true" name="languages" placeholder="Select a Language"></p-dropdown>
+                        <p-dropdown [options]="languages" [(ngModel)]="Clause.language_Id" editable="true" name="languages" placeholder="Select a Language"></p-dropdown>
                         <!-- <p>Selected Language: {{selectedLanguage1 || 'none'}}</p> -->
                     </div>
                     <div class="p-field p-col">
@@ -56,7 +55,7 @@
                     </div>
                     <div class="p-field p-col-12">
                         <label for="clausetext">Clause Text</label>
-                        <textarea rows="14" cols="30" name="textmessages" [(ngModel)]="contractService.Clause.text" pInputTextarea placeholder="Type here..."></textarea>
+                        <textarea rows="14" cols="30" name="textmessages" [(ngModel)]="Clause.text" pInputTextarea placeholder="Type here..."></textarea>
                     </div>
                     <div class="p-field p-col-6">
                         <label for="taggedtemplates">Tagged Templates</label>

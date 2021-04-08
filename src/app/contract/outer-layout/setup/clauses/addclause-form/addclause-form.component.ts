@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import { ContractService } from 'src/app/contract/contract.service';
+import { UserService } from 'src/app/shared/user.service';
 import { Clauses } from 'src/app/shared/clauses.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -14,12 +15,16 @@ export class AddclauseFormComponent implements OnInit {
   contracttypes: SelectItem[];    //dropdown1
   selectedCtype1: string;
   languages: SelectItem[];    //dropdown2
-  selectedLanguage1: string;
+  // selectedLanguage1: string;
   options: any[] = [];         //horizontal checkboxes
   taggedtemplates: any[];            //table
   cols: any[];
+  Clause:Clauses;   //Clause obj
+  firstName:string;
+  lastName:string;
 
-  constructor(public contractService: ContractService,private router: Router,private route: ActivatedRoute) {
+  constructor(public contractService: ContractService, public userService: UserService,private router: Router,private route: ActivatedRoute) {
+    this.Clause = new Clauses();  //clause obj
     this.contracttypes = [
       {label: 'NDA', value: 'NDA'},
       {label: 'MSA', value: 'MSA'},
@@ -27,13 +32,13 @@ export class AddclauseFormComponent implements OnInit {
       {label: 'LA', value: 'LA'}
   ];   //dropdown1_ContractType_end
   this.languages = [
-    {label: 'English', value: 'English'},
-    {label: 'Hindi', value: 'Hindi'},
-    {label: 'Marathi', value: 'Marathi'},
-    {label: 'Sanskrit', value: 'Sanskrit'}
+    {label: 'English', value: '1'}
+    // {label: 'Hindi', value: 'Hindi'},
+    // {label: 'Marathi', value: 'Marathi'},
+    // {label: 'Sanskrit', value: 'Sanskrit'}
 ];   //dropdown2_languages_end
 
-  }    //end of construcor() method
+  }    //end of constructor() method
 
   ngOnInit(): void {
     this.taggedtemplates = [
@@ -49,7 +54,20 @@ export class AddclauseFormComponent implements OnInit {
   }  //end of  ngOnInit()_void method
 
   saveClause(){
-    console.log(this.contractService.Clause);
+    console.log(this.Clause);
+    // this.Clause.createdBy = this.userService.loggedinUser.firstName+ " " + this.userService.loggedinUser.lastName;
+    this.Clause.createdBy = this.firstName;
+    this.Clause.createdBy = this.lastName;
+    debugger;
+    this.Clause.tenantId = this.userService.loggedinUser.tenantId;
+
+    this.Clause.createdDate = new Date().toDateString();
+    this.Clause.updatedDate = new Date().toDateString();
+    this.Clause.isDeleted = false;
+    alert('save cluase on clicked')
+    this.contractService.createClauses(this.Clause).then((res)=>{
+        console.log(res);
+    })
   }
 
   // userModel = new this.userModel('clause1', 'this is first clause', 'just i have to check it')

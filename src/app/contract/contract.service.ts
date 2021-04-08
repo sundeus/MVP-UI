@@ -13,7 +13,7 @@ export class ContractService {
   contracttypeBaseUrl:String;
 
   contractList=[];   //Contract_List
-  Clause:Clauses;
+  // Clause:Clauses;
 
   constructor(public userService:UserService, private http:HttpClient, private router:Router, private activatedRoute:ActivatedRoute) {
     this.contractBaseUrl = environment.contractApiURL;
@@ -28,7 +28,15 @@ this.contractList = res;
 resolve(true);
       })
     });
+  }
 
+  //Create_Clauses
+  createClauses(Clause){
+    return new Promise<any>((resolve, reject) => {
+      this.http.post(this.contracttypeBaseUrl+"/api/Clauses/SaveContractTypeClauses",Clause).toPromise().then(()=>{
+        resolve(true);
+      })
+    })
   }
 }//end of export class
 

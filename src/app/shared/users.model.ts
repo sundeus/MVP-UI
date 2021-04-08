@@ -1,12 +1,15 @@
 export class Users {
     id:number = null
 userId:number =null
-tenantId:number =null
+// tenantId:number =null
+tenantId:number;
   employeeId: string = null
   status:number = null
-  firstName: string = null
+  // firstName: string = null
+  firstName: string;
   middleName: null
-  lastName: string = null
+  // lastName: string = null
+  lastName: string;
   address: string = null
   countryId: number = null
   emailAddress: string = null

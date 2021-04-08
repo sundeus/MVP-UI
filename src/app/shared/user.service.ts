@@ -10,6 +10,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class UserService {
 loggedinUser: Users=null;
+// loggedinUser: Users;
 loggedIn: boolean;
 
 initiatedContracts=[];       //KPI_1_initiated_contracts
@@ -53,7 +54,7 @@ pendingContractsForReview=[];    //KPI_5_PendingReview
       //localStorage.setItem('currentUser',JSON.stringify(this.loggedinUser));
       localStorage.setItem('currentUserId',JSON.stringify(this.loggedinUser.id));
       //this.loggedinUser = JSON.parse(localStorage.getItem('currentUser'));
-      
+
    //console.log(this.loggedinUser);
    document.getElementById('loader').style.display='none';
    this.router.navigate(['/app']);
