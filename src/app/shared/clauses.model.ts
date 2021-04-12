@@ -4,7 +4,7 @@ tenantId:number;
 name:string;
 description:string;
 text:string;
-language_Id:number=1;
+language_Id:number;
 isMandatory:boolean=false;
 isTracked:boolean=false;
 contractTypeId:number;

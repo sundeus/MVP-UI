@@ -29,18 +29,18 @@ import { Contract_type } from "./../../clauses/contracttypes";
 })
 export class AddclauseFormComponent implements OnInit {
  // contracttypes: SelectItem[];    //dropdown1
-  contracts:Contract_type[];   //interface
+  //contracts:Contract_type[];   //interface
   contracttypes: Contract_type[];   //dropdown1
   selectedContract_type1: Contract_type;
 
   languages: SelectItem[];    //dropdown2
   // selectedLanguage1: string;
-  options: any[] = [];         //horizontal checkboxes
+  //options: any[] = [];         //horizontal checkboxes
   taggedtemplates: any[];            //table
   cols: any[];
   Clause:Clauses;   //Clause obj
-  firstName:string;
-  lastName:string;
+  // firstName:string;
+  // lastName:string;
 
   constructor(public contractService: ContractService, public userService: UserService,private router: Router,private route: ActivatedRoute) {
     this.Clause = new Clauses();  //clause obj
@@ -87,17 +87,20 @@ export class AddclauseFormComponent implements OnInit {
   }  //end of  ngOnInit()_void method
 
   saveClause(){
-    console.log(this.Clause);
-    // this.Clause.createdBy = this.userService.loggedinUser.firstName+ " " + this.userService.loggedinUser.lastName;
-    this.Clause.createdBy = this.firstName;
-    this.Clause.createdBy = this.lastName;
-    debugger;
+    this.Clause.createdBy = this.userService.loggedinUser.firstName+ " " + this.userService.loggedinUser.lastName;
+    this.Clause.updatedBy = this.userService.loggedinUser.firstName+ " " + this.userService.loggedinUser.lastName;
+    // this.Clause.createdBy = this.firstName;
+    // this.Clause.createdBy = this.lastName;
+    // debugger;
     this.Clause.tenantId = this.userService.loggedinUser.tenantId;
-
-    this.Clause.createdDate = new Date().toDateString();
-    this.Clause.updatedDate = new Date().toDateString();
+    this.Clause.contractTypeName=this.selectedContract_type1.name;
+    this.Clause.createdDate = new Date().toISOString();
+    this.Clause.updatedDate = new Date().toISOString();
+    this.Clause.contractTypeId=this.selectedContract_type1.contractTypeId;
     this.Clause.isDeleted = false;
-    alert('save cluase on clicked')
+    // alert('save cluase on clicked')
+    console.log(this.Clause);
+
     this.contractService.createClauses(this.Clause).then((res)=>{
         console.log(res);
     })

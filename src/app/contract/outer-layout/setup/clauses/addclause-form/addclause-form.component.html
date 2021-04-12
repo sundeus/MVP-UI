@@ -40,17 +40,17 @@
                         <label for="ticksoptions">Tick Applicable</label>
                         <div class="p-formgroup-inline">
                             <div class="p-field-checkbox">
-                                <p-checkbox name="option1" value="Mandatory" [(ngModel)]="options" inputId="option1"></p-checkbox>
+                                <p-checkbox name="option1" [(ngModel)]="Clause.isMandatory" inputId="option1" [binary]="true"></p-checkbox>
                                 <label for="option1">Mandatory</label>
                             </div>
                             <div class="p-field-checkbox">
-                                <p-checkbox name="option2" value="Track" [(ngModel)]="options" inputId="option2"></p-checkbox>
+                                <p-checkbox name="option2" [(ngModel)]="Clause.isTracked" inputId="option2" [binary]="true"></p-checkbox>
                                 <label for="option2">Track</label>
                             </div>
-                            <div class="p-field-checkbox">
+                            <!-- <div class="p-field-checkbox">
                                 <p-checkbox name="option3" value="Conditional" [(ngModel)]="options" inputId="option3"></p-checkbox>
                                 <label for="option3">Conditional</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="p-field p-col-12">
