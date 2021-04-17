@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import { SortEvent } from 'primeng/api';
+import { ContractService } from 'src/app/contract/contract.service';
+import { UserService } from 'src/app/shared/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clauses-list',
@@ -17,7 +20,7 @@ export class ClausesListComponent implements OnInit {
   first = 0;  //pagination
   rows = 10;
 
-  constructor() {
+  constructor(public contractService: ContractService, public userService: UserService, private router: Router) {
     this.Contracttypes = [
       {label: 'NDA', value: 'NDA'},
       {label: 'MSA', value: 'MSA'},
@@ -31,21 +34,21 @@ export class ClausesListComponent implements OnInit {
    }    // end bracket of Constructor() Method
 
   ngOnInit(): void {
-    this.customtabledata = [
-      {"Contract Type": "Non Disclosure Agreement", "Clause Name": "Legal Agreement", "Mandatory": "No", "Version": "1.0" },
-      {"Contract Type": "Partnership Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "1.1" },
-      {"Contract Type": "Master Services Agreement", "Clause Name": "Legal Agreement", "Mandatory": "No", "Version": "1.2" },
-      {"Contract Type": "Lease Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Sponsorship Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Vendor Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Declined Review", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Sponsorship Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Sponsorship Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Software License Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Non Disclosure Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Partnership Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
-      {"Contract Type": "Master Services Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" }
-   ];
+  //   this.customtabledata = [
+  //     {"Contract Type": "Non Disclosure Agreement", "Clause Name": "Legal Agreement", "Mandatory": "No", "Version": "1.0" },
+  //     {"Contract Type": "Partnership Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "1.1" },
+  //     {"Contract Type": "Master Services Agreement", "Clause Name": "Legal Agreement", "Mandatory": "No", "Version": "1.2" },
+  //     {"Contract Type": "Lease Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Sponsorship Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Vendor Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Declined Review", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Sponsorship Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Sponsorship Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Software License Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Non Disclosure Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Partnership Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" },
+  //     {"Contract Type": "Master Services Agreement", "Clause Name": "Legal Agreement", "Mandatory": "Yes", "Version": "2.1" }
+  //  ];
     this.cols = [
       { field: 'Contract Type', header: 'Contract Type' },
       { field: 'Clause Name', header: 'Clause Name'},
@@ -53,6 +56,10 @@ export class ClausesListComponent implements OnInit {
       { field: 'Version', header: 'Version'},
       { field: 'image', header: 'Action'}
   ];
+  //Clause List
+  this.contractService.getClauseList().then(()=>{
+    this.customtabledata=this.contractService.clauseList;
+  })
   }    // end bracket of ngOnInit():void Method
   customSort(event: SortEvent) {
     event.data.sort((data1, data2) => {
@@ -73,7 +80,7 @@ export class ClausesListComponent implements OnInit {
 
         return (event.order * result);
     });
-} // end bracket of customSort method() 
+} // end bracket of customSort method()
 
 // Start pagination section code
  next() {

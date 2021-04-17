@@ -41,7 +41,7 @@ ngOnInit(): void {
           ]
       },
       {separator:true},
-    
+
       {
           label: 'John Doe',
           // sublabel: 'Sundeus Technology',
@@ -58,17 +58,17 @@ ngOnInit(): void {
               {
                   label: 'Customize Dashboard',
                   icon: 'fa fa-cog',
-                 
+
               },
               {
                 label: 'Change Password',
                 icon: 'fa fa-lock',
-              
+
             },
             {
               label: 'Logout',
               icon: 'fa fa-power-off',
-             
+
           }
           ]
       },
@@ -77,7 +77,7 @@ ngOnInit(): void {
            icon: 'fa fa-question-circle'
       }
   ];
-  
+
 // siderbar menu with tieredmenu
 this.sundeussidemenu = [
   {
@@ -99,7 +99,7 @@ this.sundeussidemenu = [
     label: 'Reports',
     styleClass: 'expandcontent',
     icon: 'reportsimag',
-    
+
 },
 {separator:true},
 {
@@ -131,7 +131,7 @@ items: [
       {separator:true},
       {styleClass: 'submenupadd-tb', label: 'Contract Type', routerLink: ['/app/setup/contract-type/list'] },
       {separator:true},
-      {styleClass: 'submenupadd-tb', label: 'Clauses', routerLink: ['/app/setup/clauses/list'], 'disabled': true},
+      {styleClass: 'submenupadd-tb', label: 'Clauses', routerLink: ['/app/setup/clauses/list'] },
       {separator:true},
       {styleClass: 'submenupadd-tb', label: 'Templates', routerLink: ['/app/setup/templates/list']},
       {separator:true},

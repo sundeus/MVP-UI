@@ -29,18 +29,15 @@ import { Contract_type } from "./../../clauses/contracttypes";
 })
 export class AddclauseFormComponent implements OnInit {
  // contracttypes: SelectItem[];    //dropdown1
-  //contracts:Contract_type[];   //interface
   contracttypes: Contract_type[];   //dropdown1
   selectedContract_type1: Contract_type;
-
   languages: SelectItem[];    //dropdown2
   // selectedLanguage1: string;
-  //options: any[] = [];         //horizontal checkboxes
-  taggedtemplates: any[];            //table
+
+  //options: any[] = [];    //horizontal checkboxes
+  taggedtemplates: any[];  //table
   cols: any[];
   Clause:Clauses;   //Clause obj
-  // firstName:string;
-  // lastName:string;
 
   constructor(public contractService: ContractService, public userService: UserService,private router: Router,private route: ActivatedRoute) {
     this.Clause = new Clauses();  //clause obj
@@ -56,22 +53,11 @@ export class AddclauseFormComponent implements OnInit {
   //     {label: 'LA', value: 'LA'}
   // ];
   //dropdown1_ContractType_end
-
-//   this.contracttypes = [
-//     {name: 'NDA', code: 'NA'},
-//     {name: 'MSA', code: 'MA'},
-//     {name: 'Offer Letter', code: 'OL'},
-//     {name: 'LSA', code: 'LA'}
-// ];
-
   this.languages = [
     {label: 'English', value: '1'}
-    // {label: 'Hindi', value: 'Hindi'},
-    // {label: 'Marathi', value: 'Marathi'},
-    // {label: 'Sanskrit', value: 'Sanskrit'}
 ];   //dropdown2_languages_end
 
-  }    //end of constructor() method
+  }  //end of constructor() method
 
   ngOnInit(): void {
     this.taggedtemplates = [
@@ -89,23 +75,22 @@ export class AddclauseFormComponent implements OnInit {
   saveClause(){
     this.Clause.createdBy = this.userService.loggedinUser.firstName+ " " + this.userService.loggedinUser.lastName;
     this.Clause.updatedBy = this.userService.loggedinUser.firstName+ " " + this.userService.loggedinUser.lastName;
-    // this.Clause.createdBy = this.firstName;
-    // this.Clause.createdBy = this.lastName;
-    // debugger;
+
     this.Clause.tenantId = this.userService.loggedinUser.tenantId;
     this.Clause.contractTypeName=this.selectedContract_type1.name;
     this.Clause.createdDate = new Date().toISOString();
     this.Clause.updatedDate = new Date().toISOString();
     this.Clause.contractTypeId=this.selectedContract_type1.contractTypeId;
     this.Clause.isDeleted = false;
-    // alert('save cluase on clicked')
     console.log(this.Clause);
 
     this.contractService.createClauses(this.Clause).then((res)=>{
-        console.log(res);
+        // console.log(res);
+
+        this.router.navigate(['/app/setup/clauses/list']);
+
     })
   }
 
-  // userModel = new this.userModel('clause1', 'this is first clause', 'just i have to check it')
 
 }    //end of export class

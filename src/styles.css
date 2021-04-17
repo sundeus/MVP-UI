@@ -264,6 +264,11 @@ body .ui-togglebutton:not(.ui-state-disabled):not(.ui-state-active):hover {
     color: #013164;
     font-size: 25px;
 }
+.button-b-ht{
+position: fixed;
+bottom: 45px;
+width: 92%;
+}
 .py-mandatoryline {
     margin-top: -7px;
     margin-bottom: 7px;

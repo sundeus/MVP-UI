@@ -16,6 +16,7 @@ export class ContractService {
   contractList=[];   //Contract_List
   // Clause:Clauses;
   ContractTypeList: Contract_type[];   //All_Contract_type
+  clauseList=[];   //Clause_List
 
   constructor(public userService:UserService, private http:HttpClient, private router:Router, private activatedRoute:ActivatedRoute) {
     this.contractBaseUrl = environment.contractApiURL;
@@ -50,6 +51,17 @@ resolve(true);
 
     });
   }
+// Clause list
+getClauseList(){
+  return new Promise((resolve, reject)=>{
+    // var query:string;
+    this.http.get(this.contracttypeBaseUrl+"/api/Clauses?tenantId="+this.userService.loggedinUser.tenantId).toPromise().then((res:Array<any>)=>{
+this.clauseList = res;
+resolve(true);
+    })
+  });
+}
+
 }//end of export class
 
 
